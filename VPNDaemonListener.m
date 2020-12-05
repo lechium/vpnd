@@ -175,7 +175,7 @@ typedef enum : NSUInteger {
                                     withCertificateType:(NEVPNIKEv2CertificateType)certType
                                             blacklistJS:(NSString *)blacklistJavascriptString {
     
-    id protocolConfig = [[objc_getClass("NEVPNProtocolIKEv2") alloc] init];
+    NEVPNProtocolIKEv2 *protocolConfig = [[NEVPNProtocolIKEv2 alloc] init];
     [protocolConfig setServerAddress:server];
     [protocolConfig setServerCertificateCommonName:server];
     [protocolConfig setRemoteIdentifier:server];
@@ -189,7 +189,7 @@ typedef enum : NSUInteger {
     [protocolConfig setPasswordReference:passRef];
     [protocolConfig setDeadPeerDetectionRate: NEVPNIKEv2DeadPeerDetectionRateLow];
     
-    id proxSettings = [[objc_getClass("NEProxySettings") alloc] init];
+    NEProxySettings *proxSettings = [[NEProxySettings alloc] init];
     [proxSettings setAutoProxyConfigurationEnabled:YES];
     if (blacklistJavascriptString != nil){ //only add these changes if the blacklist has any enabled items.
         [proxSettings setProxyAutoConfigurationJavaScript: blacklistJavascriptString];
@@ -211,8 +211,8 @@ typedef enum : NSUInteger {
 }
 
 + (NEVPNStatus)currentVPNStatusWithRefresh:(BOOL)refresh {
-    id vpnManager = [self currentVPNManager];
-    __block NEVPNStatus status = [(NEVPNConnection *)[vpnManager connection] status];
+    NEVPNManager *vpnManager = [VPNDaemonListener currentVPNManager];
+    __block NEVPNStatus status = [[vpnManager connection] status];
     if (refresh){
         [vpnManager loadFromPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
            
@@ -227,7 +227,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)stopVPNTunnel {
-    id vpnManager = (NEVPNManager*)[VPNDaemonListener currentVPNManager];
+    NEVPNManager *vpnManager = [VPNDaemonListener currentVPNManager];
     [vpnManager setEnabled:NO];
     [vpnManager saveToPreferencesWithCompletionHandler:^(NSError *saveErr) {
            if (saveErr) {
@@ -241,17 +241,17 @@ typedef enum : NSUInteger {
 
 + (NSArray *)vpnOnDemandRules {
     // RULE: do not take action if certain types of inflight wifi, needed because they do not detect captive portal properly
-    id onboardIgnoreRule = [[objc_getClass("NEOnDemandRuleIgnore") alloc] init];
+    NEOnDemandRuleIgnore *onboardIgnoreRule = [[NEOnDemandRuleIgnore alloc] init];
     [onboardIgnoreRule setInterfaceTypeMatch:NEOnDemandRuleInterfaceTypeWiFi];
     [onboardIgnoreRule setSSIDMatch:@[@"gogoinflight", @"AA Inflight", @"AA-Inflight"]];
     
     // RULE: disconnect if 'xfinitywifi' as they apparently block IPSec traffic (???)
-    id xfinityDisconnect = [[objc_getClass("NEOnDemandRuleDisconnect") alloc] init];
+    NEOnDemandRuleDisconnect *xfinityDisconnect = [[NEOnDemandRuleDisconnect alloc] init];
     [xfinityDisconnect setInterfaceTypeMatch:NEOnDemandRuleInterfaceTypeWiFi];
     [xfinityDisconnect setSSIDMatch:@[@"xfinitywifi"]];
     
     // RULE: connect to VPN automatically if server reports that it is running OK
-    NEOnDemandRuleConnect *vpnServerConnectRule = [[objc_getClass("NEOnDemandRuleConnect") alloc] init];
+    NEOnDemandRuleConnect *vpnServerConnectRule = [[NEOnDemandRuleConnect alloc] init];
     [vpnServerConnectRule setInterfaceTypeMatch:NEOnDemandRuleInterfaceTypeAny];
     [vpnServerConnectRule setProbeURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@%@", [[NSUserDefaults standardUserDefaults] objectForKey:kGRDHostnameOverride], kSGAPI_ServerStatus]]];
     
@@ -310,7 +310,7 @@ typedef enum : NSUInteger {
 
 
 - (void)applicationStopVPNConnection {
-    id vpnManager = (NEVPNManager*)[VPNDaemonListener currentVPNManager];
+    NEVPNManager *vpnManager = [VPNDaemonListener currentVPNManager];
     [vpnManager setEnabled:NO];
     [vpnManager saveToPreferencesWithCompletionHandler:^(NSError *saveErr) {
            if (saveErr) {
@@ -397,7 +397,7 @@ typedef enum : NSUInteger {
 }
 
 - (NSString *)configApplicationName {
-    return [[(NEVPNManager*)[VPNDaemonListener currentVPNManager] configuration] applicationName];
+    return [[[VPNDaemonListener currentVPNManager] configuration] applicationName];
 }
 
 - (void)applicationStartVPNConnection:(NSDictionary *)mainPayload {
@@ -478,7 +478,7 @@ typedef enum : NSUInteger {
             [vpnManager setEnabled: YES];
                       
             NSLog(@"protocolConfig: %@", [vpnManager protocolConfiguration]);
-            NEConfiguration *nec = [(NEVPNManager*)[VPNDaemonListener currentVPNManager] configuration];
+            NEConfiguration *nec = [[VPNDaemonListener currentVPNManager] configuration];
             [nec setApplication:@"com.nito.nitoTV4"];
             [nec setApplicationName:@"nitoTV"];
         
@@ -507,7 +507,7 @@ typedef enum : NSUInteger {
 - (void)CCRequestVPNStatus:(NSNotification *)n {
     
     NSLog(@"*** [vpnd] :: CCRequestVPNStatus");
-    switch ([[(NEVPNManager*)[VPNDaemonListener currentVPNManager] connection] status]) {
+    switch ([[[VPNDaemonListener currentVPNManager] connection] status]) {
         case NEVPNStatusConnected:
             [[NSDistributedNotificationCenter defaultCenter]postNotificationName:@"com.nito.vpnd/connected" object:nil];
             break;
