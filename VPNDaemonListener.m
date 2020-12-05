@@ -389,16 +389,31 @@ typedef enum : NSUInteger {
         }
 }
 
-
+//this tracks whether we are in light or dark mode, since we have no UI we "need" the application to report this data to us
 - (void)applicationChangedViewMode:(NSInteger)style{
     
     NSLog(@"*** [vpnd] :: applicationChangedViewMode: %lu", style);
     self.interfaceStyle = style;
 }
 
+//easy way to get access to our 'application name' since we are in a daemon this is normally blank unless we force set it (set below)
 - (NSString *)configApplicationName {
     return [[[VPNDaemonListener currentVPNManager] configuration] applicationName];
 }
+
+/**
+ 
+ One of the core VPN functions, this receives a payload from a VPN configuration dictionary that is part of the mobile config file.
+
+ in the default, stable and reliable mode we only pluck out three pieces of information to get things working, the username, password and server name.
+ user name and password are stored in the keychain and the server is stored in NSUserDefaults, upon toggling again with 'nil' paramater we
+ will just assume they are turning it on again and to load with those saved settings instead of trying to process a new profile
+ 
+ in the USE_PROFILE mode it attempts to create a new NEConfiguration & configurationProfile to set instead of NEVPNProtocolIKEv2 that is created
+ above.
+ 
+ 
+ */
 
 - (void)applicationStartVPNConnection:(NSDictionary *)mainPayload {
     NSLog(@"*** [vpnd] :: applicationStartVPNConnection:");
@@ -411,8 +426,8 @@ typedef enum : NSUInteger {
     //__block id cp = nil;
     //__block id config = nil;
     #endif
-    id vpnManager = [VPNDaemonListener currentVPNManager];
-    
+    NEVPNManager *vpnManager = [VPNDaemonListener currentVPNManager];
+    //if you arent familiar with NEVPNManager calling one of these to an active VPN setup is required at least once per run.
     [vpnManager loadFromPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
         
         if (error){
@@ -426,19 +441,28 @@ typedef enum : NSUInteger {
                     
                     NSLog(@"[vpnd] we got a VPN dealy!");
                     #ifdef USE_PROFILE
+                    
+                    //EXPERIMENTAL!! BUYER BEWARE!
+                    
                     [vpnManager setProtocolConfiguration:nil];
                     NSString *payloadDisplayName = mainPayload[@"PayloadDisplayName"];
+                    
+                    //MCVPNPayloadBase is in ManagedConfiguration framework the goal is to make ourselves an NEConfiguration and
+                    //then to create a 'configurationProtocol' from there. this works the first time but then struggles to work subsequent times
                     id mcPayloadBase = [NSClassFromString(@"MCVPNPayloadBase") NEVPNPayloadBaseDelegateWithConfigurationDict:mainPayload];
                     NSLog(@"mcPayloadBase: %@", mcPayloadBase);
                     self.configuration = [[NSClassFromString(@"NEConfiguration") alloc] initWithVPNPayload:mcPayloadBase configurationName: payloadDisplayName grade: 1];
                     NSLog(@"[vpnd] config : %@ made with name: %@", self.configuration, payloadDisplayName);
                     [vpnManager setConfiguration:self.configuration];
-                    [self.configuration syncWithSystemKeychain];
+                    [self.configuration syncWithSystemKeychain]; //maybe this is wrong because we are owned by mobile and not root?
                     self.configurationProfile = [self.configuration getConfigurationProtocol];
                     NSLog(@"[vpnd] config protocol: %@", self.configurationProfile);
                     [vpnManager setProtocolConfiguration:self.configurationProfile];
                 
                     #else
+                    
+                    //loading from just username, password and server address
+                    
                     NSDate *expiration = mainPayload[kMCPayloadExpirationDate];
                     NSLog(@"*** [vpnd] :: ExpirationDate: %@", expiration);
                     [defaults setValue:expiration forKey:kMCPayloadExpirationDate];
@@ -462,7 +486,6 @@ typedef enum : NSUInteger {
                 #endif
             }
             
-            //[vpnManager setConfiguration:config];
             #ifndef USE_PROFILE
             NSData *eapPassword = [VPNDaemonListener getPasswordRefForAccount:kKeychainStr_EapPassword];
             [vpnManager setProtocolConfiguration:[VPNDaemonListener prepareIKEv2ParametersForServer:vpnServer eapUsername:eapUsername eapPasswordRef:eapPassword withCertificateType:NEVPNIKEv2CertificateTypeECDSA256 blacklistJS:blacklistJS]];
@@ -498,12 +521,10 @@ typedef enum : NSUInteger {
             }];
         }
     }];
-    //[vpnManager setConfiguration:config];
-    
-    
-    
+
 }
 
+//this gets called when the control center widget requests our current connectivity status
 - (void)CCRequestVPNStatus:(NSNotification *)n {
     
     NSLog(@"*** [vpnd] :: CCRequestVPNStatus");
@@ -519,6 +540,7 @@ typedef enum : NSUInteger {
     }
 }
 
+//monitors the VPN connection status to show the bulletins (user notifications) when the state changes between connected / disconnected
 - (void)monitorVPNConnection {
     
     NSLog(@"*** [vpnd] :: monitorVPNConnection");
@@ -564,6 +586,7 @@ typedef enum : NSUInteger {
     return YES;
 }
 
+//this is currently unused in nitoTV but the mobileconfigs from guardian expire in 30 days so this is the scaffolding to handle that.
 - (void)applicationRequestExpirationStatus {
     NSDate *expirationDate = [[NSUserDefaults standardUserDefaults] objectForKey:kMCPayloadExpirationDate];
     if ([expirationDate compare:[NSDate date]] == NSOrderedAscending){
@@ -573,16 +596,19 @@ typedef enum : NSUInteger {
     }
 }
 
+//how nitoTV toggles the VPN on/off
 - (void)applicationRequestsToggleVPN {
     [self toggleVPN];
 }
 
+//how nitoTV requests the current status
 - (void)applicationRequestsVPNStatus {
     NSLog(@"*** vpnd :: applicationRequestsVPNStatus" );
     NEVPNStatus status = [VPNDaemonListener currentVPNStatusWithRefresh:true];
     [[self.xpcConnection remoteObjectProxy] daemonReportsStatus:status];
 }
 
+//unused
 - (void)applicationDidLaunch {
     
 }
@@ -591,13 +617,14 @@ typedef enum : NSUInteger {
 // Daemon protocol
 //////////////////////////////////////////////////////////////////////////
 
+//unused
 - (void)applicationDidFinishTask {
     NSLog(@"*** [vpnd] :: applicationDidFinishTask recieved.");
     
     
 }
 
-
+//unused
 - (void)applicationRequestsPreferencesUpdate {
     NSLog(@"*** [vpnd] :: applicationRequestsPreferencesUpdate recieved.");
     
