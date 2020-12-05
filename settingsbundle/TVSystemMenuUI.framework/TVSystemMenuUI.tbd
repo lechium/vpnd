@@ -1,0 +1,49 @@
+---
+archs:                 [ arm64 ]
+platform:              tvos
+install-name:          /System/Library/PrivateFrameworks/TVSystemMenuUI.framework/TVSystemMenuUI
+current-version:       1
+compatibility-version: 1
+exports:
+  - archs:              [ arm64 ]
+    symbols:            [ _TVSystemMenuUIVersionNumber, _TVSystemMenuUIVersionString, __TVSMModuleButtonViewFocusSize,
+                          __TVSMMonogramViewFocusSize, __TVSMRectangleButtonViewFocusSize ]
+    objc-classes:       [ _TVSMActionModule, _TVSMButtonViewController, _TVSMCollectionModule, _TVSMExpandingModule,
+                          _TVSMLockupContainingCollectionViewCell, _TVSMModuleButtonView, _TVSMMonogramView,
+                          _TVSMMonogramViewController, __TVSMHighContrastFocusView, __TVSMModuleButtonContentView,
+                          __TVSMMonogramContentView, __TVSMRectangleButtonContentView, __TVSMVibrantHeaderFooterView ]
+    objc-ivars:         [ _TVSMActionModule._bundle, _TVSMActionModule._contentViewController, _TVSMActionModule._delegate,
+                          _TVSMActionModule._displayName, _TVSMActionModule._icon, _TVSMActionModule._iconSymbolName,
+                          _TVSMActionModule._type, _TVSMButtonViewController._buttonView, _TVSMButtonViewController._delegate,
+                          _TVSMButtonViewController._image, _TVSMButtonViewController._imageSymbolName,
+                          _TVSMButtonViewController._secondaryText, _TVSMButtonViewController._style,
+                          _TVSMButtonViewController._titleText, _TVSMCollectionModule._bundle, _TVSMCollectionModule._delegate,
+                          _TVSMCollectionModule._type, _TVSMExpandingModule._bundle, _TVSMExpandingModule._contentViewController,
+                          _TVSMExpandingModule._delegate, _TVSMExpandingModule._displayName, _TVSMExpandingModule._icon,
+                          _TVSMExpandingModule._iconSymbolName, _TVSMExpandingModule._type,
+                          _TVSMLockupContainingCollectionViewCell._lockupView, _TVSMModuleButtonView._image,
+                          _TVSMModuleButtonView._imageSymbolName, _TVSMModuleButtonView._moduleContentView,
+                          _TVSMModuleButtonView._secondaryText, _TVSMModuleButtonView._style, _TVSMModuleButtonView._titleText,
+                          _TVSMMonogramView._image, _TVSMMonogramView._monogramContentView, _TVSMMonogramView._personNameComponents,
+                          _TVSMMonogramView._showSelection, _TVSMMonogramView._vibrantFooterView,
+                          _TVSMMonogramViewController._delegate, _TVSMMonogramViewController._image,
+                          _TVSMMonogramViewController._monogramView, _TVSMMonogramViewController._nameComponents,
+                          _TVSMMonogramViewController._showSelection, _TVSMMonogramViewController._titleText,
+                          __TVSMHighContrastFocusView._innerFocusRing, __TVSMModuleButtonContentView._contentImageView,
+                          __TVSMModuleButtonContentView._floatingContentEffectView,
+                          __TVSMModuleButtonContentView._floatingContentView, __TVSMModuleButtonContentView._image,
+                          __TVSMModuleButtonContentView._titleLabel, __TVSMModuleButtonContentView._titleText,
+                          __TVSMMonogramContentView._contentImageView, __TVSMMonogramContentView._floatingContentView,
+                          __TVSMMonogramContentView._focusedShadowView, __TVSMMonogramContentView._highContrastView,
+                          __TVSMMonogramContentView._image, __TVSMMonogramContentView._imageSize,
+                          __TVSMMonogramContentView._initialsLabel, __TVSMMonogramContentView._personNameComponents,
+                          __TVSMMonogramContentView._unfocusedShadowView, __TVSMRectangleButtonContentView._contentImageView,
+                          __TVSMRectangleButtonContentView._floatingContentView,
+                          __TVSMRectangleButtonContentView._highContrastFocusView, __TVSMRectangleButtonContentView._image,
+                          __TVSMRectangleButtonContentView._imageSymbolName, __TVSMRectangleButtonContentView._secondaryLabel,
+                          __TVSMRectangleButtonContentView._secondaryText, __TVSMRectangleButtonContentView._style,
+                          __TVSMRectangleButtonContentView._titleLabel, __TVSMRectangleButtonContentView._titleText,
+                          __TVSMVibrantHeaderFooterView._checkmarkConstraint, __TVSMVibrantHeaderFooterView._hasCheckmark,
+                          __TVSMVibrantHeaderFooterView._isFocused, __TVSMVibrantHeaderFooterView._labelText,
+                          __TVSMVibrantHeaderFooterView._standardCheckmark, __TVSMVibrantHeaderFooterView._standardLabel ]
+...

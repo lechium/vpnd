@@ -10,3 +10,6 @@ vpnd_CFLAGS += -I. -F. -fobjc-arc
 vpnd_CODESIGN_FLAGS=-Sentitlements_tvos.plist
 
 include $(THEOS_MAKE_PATH)/tool.mk
+
+SUBPROJECTS += settingsbundle
+include $(THEOS_MAKE_PATH)/aggregate.mk

@@ -1,0 +1,9 @@
+Package: com.nito.vpn
+Name: VPN
+Depends: mobilesubstrate, com.nito.tvcontrolcenter (>=1.1), firmware (>= 13.0)
+Version: 0.0.1
+Architecture: appletvos-arm64
+Description: An awesome Control Center widget!
+Maintainer: Kevin Bradley
+Author: Kevin Bradley
+Section: Tweaks
