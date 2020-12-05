@@ -1,0 +1,612 @@
+./usr/libexec/nehelper/NEHelperWiFiInfoManager.h:- (_Bool)isVPNProvider;	// IMP=0x00000001000066e4
+./usr/libexec/sharingd/SDSetupAgent.h:@class CUSystemMonitor, CUUserNotificationSession, NEVPNConnection, NSData, NSMutableDictionary, NSURL, NSUUID, SDStatusMonitor, SFBLEScanner, SFDeviceDiscovery, SFDeviceRepairService, SFDeviceRepairSession, SFPINPairSession, SFService, SFWiFiHealthMonitor;
+./usr/libexec/sharingd/SDSetupAgent.h:    NEVPNConnection *_vpnCnx;	// 184 = 0xb8
+./usr/libexec/sharingd/SDSetupAgent.h:    _Bool _prefRepairVPN;	// 348 = 0x15c
+./usr/libexec/sharingd/SDSetupAgent.h:- (void)_repairVPNError:(id)arg1;	// IMP=0x000000010006fcb8
+./usr/libexec/profiled/MCAppLayerVPNHandler.h:#import "MCVPNPayloadHandlerBase.h"
+./usr/libexec/profiled/MCAppLayerVPNHandler.h:@interface MCAppLayerVPNHandler : MCVPNPayloadHandlerBase
+./usr/libexec/profiled/MCServerSideHacks.h:- (id)recomputeAccountVPNAssociations;	// IMP=0x0000000100078124
+./usr/libexec/profiled/MCNewVPNPayloadHandler.h:#import "MCVPNPayloadHandlerBase.h"
+./usr/libexec/profiled/MCNewVPNPayloadHandler.h:@interface MCNewVPNPayloadHandler : MCVPNPayloadHandlerBase
+./usr/libexec/profiled/MCAppLayerVPNPayload-Daemon.h:#import <ManagedConfiguration/MCAppLayerVPNPayload.h>
+./usr/libexec/profiled/MCAppLayerVPNPayload-Daemon.h:@interface MCAppLayerVPNPayload (Daemon)
+./usr/libexec/profiled/MCVPNPayload-Daemon.h:#import <ManagedConfiguration/MCVPNPayload.h>
+./usr/libexec/profiled/MCVPNPayload-Daemon.h:@interface MCVPNPayload (Daemon)
+./usr/libexec/profiled/MCVPNPayloadHandlerBase.h:@interface MCVPNPayloadHandlerBase : MCNewPayloadHandler
+./usr/libexec/dmd/DMDAppController.h:- (void)setVPNUUIDString:(id)arg1 associatedDomains:(id)arg2 enableDirectDownloads:(id)arg3 configuration:(id)arg4 options:(unsigned long long)arg5 forBundleIdentifier:(id)arg6;	// IMP=0x0000000100016100
+./usr/libexec/dmd/DMDAppController.h:- (_Bool)setVPNUUIDString:(id)arg1 forBundleIdentifier:(id)arg2 error:(id *)arg3;	// IMP=0x00000001000140e4
+./usr/libexec/dmd/DMDAppController.h:- (id)VPNUUIDStringForBundleIdentifier:(id)arg1;	// IMP=0x0000000100014058
+./usr/libexec/dmd/DMDSetAppVPNUUIDOperation.h:@interface DMDSetAppVPNUUIDOperation : DMDAppOperation
+./usr/libexec/installd/MIExecutableBundle.h:@property(readonly, copy, nonatomic) NSArray *vpnPluginIdentifiers;
+./usr/libexec/installd/MILaunchServicesDatabaseGatherer.h:    NSMutableSet *_vpnPlugins;	// 56 = 0x38
+./usr/libexec/installd/MILaunchServicesDatabaseGatherer.h:@property(readonly, nonatomic) NSMutableSet *vpnPlugins; // @synthesize vpnPlugins=_vpnPlugins;
+./usr/libexec/installd/MIBundleContainer.h:+ (id)allVPNPluginBundleContainersWithError:(id *)arg1;	// IMP=0x000000010005b46c
+./usr/libexec/installd/MIBundleContainer.h:+ (id)tempVPNPluginBundleContainerWithIdentifier:(id)arg1 error:(id *)arg2;	// IMP=0x000000010005b414
+./usr/libexec/installd/MIBundleContainer.h:+ (id)vpnPluginBundleContainerWithIdentifier:(id)arg1 createIfNeeded:(_Bool)arg2 created:(_Bool *)arg3 error:(id *)arg4;	// IMP=0x000000010005b3c8
+./usr/libexec/nesessionmanager/NESMFlowDivertSession.h:#import "NESMVPNSession.h"
+./usr/libexec/nesessionmanager/NESMFlowDivertSession.h:@interface NESMFlowDivertSession : NESMVPNSession <NEFlowDivertPluginDelegate>
+./usr/libexec/nesessionmanager/NEVPNPluginDriver-Protocol.h:@protocol NEVPNPluginDriver <NEPluginDriver>
+./usr/libexec/nesessionmanager/NEVPNTunnelPlugin.h:#import "NEVPNPluginManager-Protocol.h"
+./usr/libexec/nesessionmanager/NEVPNTunnelPlugin.h:@interface NEVPNTunnelPlugin : NEPlugin <NEVPNPluginManager>
+./usr/libexec/nesessionmanager/NESMVPNSessionState.h:@class NESMVPNSession;
+./usr/libexec/nesessionmanager/NESMVPNSessionState.h:@interface NESMVPNSessionState : NSObject <NESMPowerManagerDelegate>
+./usr/libexec/nesessionmanager/NESMVPNSessionState.h:    NESMVPNSession *_session;	// 16 = 0x10
+./usr/libexec/nesessionmanager/NESMVPNSessionState.h:@property(retain) NESMVPNSession *session; // @synthesize session=_session;
+./usr/libexec/nesessionmanager/NESMVPNSessionRetryCounter.h:@interface NESMVPNSessionRetryCounter : NSObject
+./usr/libexec/nesessionmanager/NESMAlwaysOnSession.h:    NSMutableDictionary *_VPNSessions;	// 56 = 0x38
+./usr/libexec/nesessionmanager/NESMAlwaysOnSession.h:    NSMutableDictionary *_VPNSessionRetryCounters;	// 64 = 0x40
+./usr/libexec/nesessionmanager/NESMAlwaysOnSession.h:@property(retain) NSMutableDictionary *VPNSessionRetryCounters; // @synthesize VPNSessionRetryCounters=_VPNSessionRetryCounters;
+./usr/libexec/nesessionmanager/NESMAlwaysOnSession.h:@property(retain) NSMutableDictionary *VPNSessions; // @synthesize VPNSessions=_VPNSessions;
+./usr/libexec/nesessionmanager/NESMAlwaysOnSession.h:- (void)didStartWithPIDForSession:(id)arg1 andVPNSession:(id)arg2 andPID:(int)arg3 error:(id)arg4;	// IMP=0x0000000100008d44
+./usr/libexec/nesessionmanager/NESMAlwaysOnSession.h:- (id)createVPNSession:(id)arg1;	// IMP=0x0000000100004fc8
+./usr/libexec/nesessionmanager/NESMVPNSessionStateUpdating.h:#import "NESMVPNSessionState.h"
+./usr/libexec/nesessionmanager/NESMVPNSessionStateUpdating.h:@interface NESMVPNSessionStateUpdating : NESMVPNSessionState
+./usr/libexec/nesessionmanager/NESMServer.h:    NESMSession *_alwaysOnVPNSession;	// 192 = 0xc0
+./usr/libexec/nesessionmanager/NESMServer.h:    long long _alwaysOnVPNSessionInstallState;	// 200 = 0xc8
+./usr/libexec/nesessionmanager/NESMServer.h:    NESMSession *_enterpriseVPNSession;	// 208 = 0xd0
+./usr/libexec/nesessionmanager/NESMServer.h:    long long _enterpriseVPNSessionInstallState;	// 216 = 0xd8
+./usr/libexec/nesessionmanager/NESMServer.h:    NESMSession *_personalVPNSession;	// 224 = 0xe0
+./usr/libexec/nesessionmanager/NESMServer.h:    long long _personalVPNSessionInstallState;	// 232 = 0xe8
+./usr/libexec/nesessionmanager/NESMServer.h:@property long long personalVPNSessionInstallState; // @synthesize personalVPNSessionInstallState=_personalVPNSessionInstallState;
+./usr/libexec/nesessionmanager/NESMServer.h:@property(retain) NESMSession *personalVPNSession; // @synthesize personalVPNSession=_personalVPNSession;
+./usr/libexec/nesessionmanager/NESMServer.h:@property long long enterpriseVPNSessionInstallState; // @synthesize enterpriseVPNSessionInstallState=_enterpriseVPNSessionInstallState;
+./usr/libexec/nesessionmanager/NESMServer.h:@property(retain) NESMSession *enterpriseVPNSession; // @synthesize enterpriseVPNSession=_enterpriseVPNSession;
+./usr/libexec/nesessionmanager/NESMServer.h:@property long long alwaysOnVPNSessionInstallState; // @synthesize alwaysOnVPNSessionInstallState=_alwaysOnVPNSessionInstallState;
+./usr/libexec/nesessionmanager/NESMServer.h:@property(retain) NESMSession *alwaysOnVPNSession; // @synthesize alwaysOnVPNSession=_alwaysOnVPNSession;
+./usr/libexec/nesessionmanager/NESMServer.h:- (void)prohibitVPNOnParameters:(id)arg1;	// IMP=0x000000010004b6fc
+./usr/libexec/nesessionmanager/NESMIKEv2VPNFallbackSession.h:@interface NESMIKEv2VPNFallbackSession : NESMSession
+./usr/libexec/nesessionmanager/NESMVPNSessionStateReasserting.h:#import "NESMVPNSessionState.h"
+./usr/libexec/nesessionmanager/NESMVPNSessionStateReasserting.h:@interface NESMVPNSessionStateReasserting : NESMVPNSessionState
+./usr/libexec/nesessionmanager/NEVPNAuthenticationPlugin.h:@interface NEVPNAuthenticationPlugin : NEPlugin
+./usr/libexec/nesessionmanager/NEVPNPluginManager-Protocol.h:@protocol NEVPNPluginManager
+./usr/libexec/nesessionmanager/NESMVPNSessionStateStopping.h:#import "NESMVPNSessionState.h"
+./usr/libexec/nesessionmanager/NESMVPNSessionStateStopping.h:@interface NESMVPNSessionStateStopping : NESMVPNSessionState
+./usr/libexec/nesessionmanager/NESMVPNSessionStateIdle.h:#import "NESMVPNSessionState.h"
+./usr/libexec/nesessionmanager/NESMVPNSessionStateIdle.h:@interface NESMVPNSessionStateIdle : NESMVPNSessionState
+./usr/libexec/nesessionmanager/NESMPolicySession.h:- (_Bool)setAOVPNTunnelDataPoliciesForInterfaceName:(id)arg1 delegateInterfaceName:(id)arg2 isSecondaryConnection:(_Bool)arg3 hasDNS:(_Bool)arg4 hasProxy:(_Bool)arg5 cellularServicesExceptionAction:(long long)arg6 applicationExceptions:(id)arg7;	// IMP=0x0000000100041800
+./usr/libexec/nesessionmanager/NESMPolicySession.h:- (_Bool)setAOVPNTunnelControlPoliciesForPluginPID:(int)arg1 pluginUUIDs:(id)arg2 delegateInterfaceName:(id)arg3 allowSecuritydTraffic:(_Bool)arg4;	// IMP=0x0000000100040c00
+./usr/libexec/nesessionmanager/NESMPolicySession.h:- (_Bool)setAOVPNTunnelDropControlPolicies:(id)arg1 pluginUUIDs:(id)arg2;// IMP=0x00000001000402c0
+./usr/libexec/nesessionmanager/NESMPolicySession.h:- (_Bool)setAOVPNTunnelControlPoliciesAllowSecuritydForAgentPID:(id)arg1 neagentPid:(int)arg2 neagentUUIDs:(id)arg3 result:(id)arg4 controlPolicyIDs:(id)arg5 order:(unsigned int *)arg6;	// IMP=0x000000010003ef88
+./usr/libexec/nesessionmanager/NESMPolicySession.h:- (_Bool)setVPNDNSPoliciesForAgentUUID:(id)arg1 interfaceName:(id)arg2 matchDomains:(id)arg3 isPrimary:(_Bool)arg4;	// IMP=0x00000001000328ec
+./usr/libexec/nesessionmanager/NESMPolicySession.h:- (_Bool)setControlPassPolicyForVPNAgentWithPID:(int)arg1 outgoingInterfaceName:(id)arg2 hasDNS:(_Bool)arg3 hasProxy:(_Bool)arg4;	// IMP=0x0000000100031ce0
+./usr/libexec/nesessionmanager/NESMPolicySession.h:- (_Bool)setPolicyForVPNAgentWithPIDs:(id)arg1 outgoingInterfaceName:(id)arg2 hasDNS:(_Bool)arg3 hasProxy:(_Bool)arg4;	// IMP=0x00000001000315ac
+./usr/libexec/nesessionmanager/NEIKEv2FallbackChildSession.h:@class NESMIKEv2VPNSession, NSString, NWInterface;
+./usr/libexec/nesessionmanager/NEIKEv2FallbackChildSession.h:    NESMIKEv2VPNSession *_tunnelSession;	// 24 = 0x18
+./usr/libexec/nesessionmanager/NEIKEv2FallbackChildSession.h:@property(retain) NESMIKEv2VPNSession *tunnelSession; // @synthesize tunnelSession=_tunnelSession;
+./usr/libexec/nesessionmanager/NESMVPNSessionStateDisposing.h:#import "NESMVPNSessionState.h"
+./usr/libexec/nesessionmanager/NESMVPNSessionStateDisposing.h:@interface NESMVPNSessionStateDisposing : NESMVPNSessionState
+./usr/libexec/nesessionmanager/NESMVPNSession.h:#import "NEVPNAuthenticationPluginDelegate-Protocol.h"
+./usr/libexec/nesessionmanager/NESMVPNSession.h:#import "NEVPNTunnelPluginDelegate-Protocol.h"
+./usr/libexec/nesessionmanager/NESMVPNSession.h:@class NEDNSSettingsNetworkAgent, NESMVPNSessionRetryCounter, NESMVPNSessionState, NETunnelNetworkSettings, NEUserNotification, NEVPNAuthenticationPlugin, NEVPNProtocol, NEVPNTunnelPlugin, NSMutableArray, NSMutableDictionary, NSObject, NSString, NWNetworkAgentRegistration, NWPathEvaluator;
+./usr/libexec/nesessionmanager/NESMVPNSession.h:@interface NESMVPNSession : NESMSession <NEVPNAuthenticationPluginDelegate, NEVPNTunnelPluginDelegate>
+./usr/libexec/nesessionmanager/NESMVPNSession.h:    NESMVPNSessionRetryCounter *_retryCounter;	// 104 = 0x68
+./usr/libexec/nesessionmanager/NESMVPNSession.h:    NESMVPNSessionState *_stateHandler;	// 128 = 0x80
+./usr/libexec/nesessionmanager/NESMVPNSession.h:    NEVPNAuthenticationPlugin *_authenticationPlugin;	// 152 = 0x98
+./usr/libexec/nesessionmanager/NESMVPNSession.h:    NEVPNTunnelPlugin *_primaryTunnelPlugin;	// 160 = 0xa0
+./usr/libexec/nesessionmanager/NESMVPNSession.h:    NEVPNProtocol *_protocol;	// 168 = 0xa8
+./usr/libexec/nesessionmanager/NESMVPNSession.h:@property(retain) NEVPNProtocol *protocol; // @synthesize protocol=_protocol;
+./usr/libexec/nesessionmanager/NESMVPNSession.h:@property(retain) NEVPNTunnelPlugin *primaryTunnelPlugin; // @synthesize primaryTunnelPlugin=_primaryTunnelPlugin;
+./usr/libexec/nesessionmanager/NESMVPNSession.h:@property(retain) NEVPNAuthenticationPlugin *authenticationPlugin; // @synthesize authenticationPlugin=_authenticationPlugin;
+./usr/libexec/nesessionmanager/NESMVPNSession.h:@property(retain) NESMVPNSessionState *stateHandler; // @synthesize stateHandler=_stateHandler;
+./usr/libexec/nesessionmanager/NESMVPNSession.h:@property(retain) NESMVPNSessionRetryCounter *retryCounter; // @synthesize retryCounter=_retryCounter;
+./usr/libexec/nesessionmanager/NESMVPNSessionStateAuthenticating.h:#import "NESMVPNSessionState.h"
+./usr/libexec/nesessionmanager/NESMVPNSessionStateAuthenticating.h:@interface NESMVPNSessionStateAuthenticating : NESMVPNSessionState
+./usr/libexec/nesessionmanager/NESMLegacySession.h:@class NEVPNProtocol, NSDictionary, NSString;
+./usr/libexec/nesessionmanager/NESMLegacySession.h:    NEVPNProtocol *_protocol;	// 16 = 0x10
+./usr/libexec/nesessionmanager/NESMLegacySession.h:@property(retain) NEVPNProtocol *protocol; // @synthesize protocol=_protocol;
+./usr/libexec/nesessionmanager/NESMVPNSessionStateRunning.h:#import "NESMVPNSessionState.h"
+./usr/libexec/nesessionmanager/NESMVPNSessionStateRunning.h:@interface NESMVPNSessionStateRunning : NESMVPNSessionState
+./usr/libexec/nesessionmanager/NEPolicySession-AlwaysOnVPN.h:@interface NEPolicySession (AlwaysOnVPN)
+./usr/libexec/nesessionmanager/NEFlowDivertPlugin.h:#import "NEVPNTunnelPlugin.h"
+./usr/libexec/nesessionmanager/NEFlowDivertPlugin.h:@interface NEFlowDivertPlugin : NEVPNTunnelPlugin <NEFlowDivertPluginManager>
+./usr/libexec/nesessionmanager/NESMIKEv2VPNSession.h:#import "NESMVPNSession.h"
+./usr/libexec/nesessionmanager/NESMIKEv2VPNSession.h:@interface NESMIKEv2VPNSession : NESMVPNSession
+./usr/libexec/nesessionmanager/NESMVPNSessionStateStarting.h:#import "NESMVPNSessionState.h"
+./usr/libexec/nesessionmanager/NESMVPNSessionStateStarting.h:@interface NESMVPNSessionStateStarting : NESMVPNSessionState
+./usr/libexec/nesessionmanager/NESMVPNSessionStatePreparingNetwork.h:#import "NESMVPNSessionState.h"
+./usr/libexec/nesessionmanager/NESMVPNSessionStatePreparingNetwork.h:@interface NESMVPNSessionStatePreparingNetwork : NESMVPNSessionState
+./usr/libexec/nesessionmanager/NEVPNTunnelPluginDelegate-Protocol.h:@class NETunnelNetworkSettings, NEVPNTunnelPlugin, NSError, NSObject;
+./usr/libexec/nesessionmanager/NEVPNTunnelPluginDelegate-Protocol.h:@protocol NEVPNTunnelPluginDelegate <NEPluginDelegate>
+./usr/libexec/nesessionmanager/NEVPNTunnelPluginDelegate-Protocol.h:- (struct NEVirtualInterface_s *)plugin:(NEVPNTunnelPlugin *)arg1 didRequestVirtualInterfaceOfType:(long long)arg2 maxPendingPackets:(unsigned long long)arg3;
+./usr/libexec/nesessionmanager/NEVPNTunnelPluginDelegate-Protocol.h:- (void)plugin:(NEVPNTunnelPlugin *)arg1 didAttachIPCWithEndpoint:(NSObject<OS_xpc_object> *)arg2;
+./usr/libexec/nesessionmanager/NEVPNTunnelPluginDelegate-Protocol.h:- (void)pluginDidClearConfiguration:(NEVPNTunnelPlugin *)arg1 completionHandler:(void (^)(NSError *))arg2;
+./usr/libexec/nesessionmanager/NEVPNTunnelPluginDelegate-Protocol.h:- (void)plugin:(NEVPNTunnelPlugin *)arg1 didSetConfiguration:(NETunnelNetworkSettings *)arg2 completionHandler:(void (^)(NSError *))arg3;
+./usr/libexec/nesessionmanager/NEVPNTunnelPluginDelegate-Protocol.h:- (void)plugin:(NEVPNTunnelPlugin *)arg1 didSetStatus:(long long)arg2 andDisconnectError:(NSError *)arg3;
+./usr/libexec/nesessionmanager/NEVPNTunnelPluginDelegate-Protocol.h:- (void)pluginDidDetachIPC:(NEVPNTunnelPlugin *)arg1;
+./usr/libexec/nesessionmanager/NEVPNAuthenticationPluginDriver-Protocol.h:#import "NEVPNPluginDriver-Protocol.h"
+./usr/libexec/nesessionmanager/NEVPNAuthenticationPluginDriver-Protocol.h:@protocol NEVPNAuthenticationPluginDriver <NEVPNPluginDriver>
+./usr/libexec/nesessionmanager/NEFlowDivertPluginDelegate-Protocol.h:#import "NEVPNTunnelPluginDelegate-Protocol.h"
+./usr/libexec/nesessionmanager/NEFlowDivertPluginDelegate-Protocol.h:@protocol NEFlowDivertPluginDelegate <NEVPNTunnelPluginDelegate>
+./usr/libexec/nesessionmanager/NEFlowDivertPluginManager-Protocol.h:#import "NEVPNPluginManager-Protocol.h"
+./usr/libexec/nesessionmanager/NEFlowDivertPluginManager-Protocol.h:@protocol NEFlowDivertPluginManager <NEVPNPluginManager>
+./usr/libexec/nesessionmanager/NEVPNAuthenticationPluginDelegate-Protocol.h:@class NEVPNAuthenticationPlugin, NSDictionary, NSError;
+./usr/libexec/nesessionmanager/NEVPNAuthenticationPluginDelegate-Protocol.h:@protocol NEVPNAuthenticationPluginDelegate <NEPluginDelegate>
+./usr/libexec/nesessionmanager/NEVPNAuthenticationPluginDelegate-Protocol.h:- (void)plugin:(NEVPNAuthenticationPlugin *)arg1 didFinishAuthenticationWithResults:(NSDictionary *)arg2 status:(int)arg3 andError:(NSError *)arg4;
+./usr/libexec/nesessionmanager/NEFlowDivertPluginDriver-Protocol.h:#import "NEVPNPluginDriver-Protocol.h"
+./usr/libexec/nesessionmanager/NEFlowDivertPluginDriver-Protocol.h:@protocol NEFlowDivertPluginDriver <NEVPNPluginDriver>
+./usr/lib/libAWDSupportFramework.dylib/AWDVPNSession.h:@interface AWDVPNSession : PBCodable <NSCopying> {
+./usr/lib/libAWDSupportFramework.dylib/AWDVPNSession.h:	BOOL _appVpnUsed;
+./usr/lib/libAWDSupportFramework.dylib/AWDVPNSession.h:@property (assign,nonatomic) BOOL hasAppVpnUsed;
+./usr/lib/libAWDSupportFramework.dylib/AWDVPNSession.h:@property (assign,nonatomic) BOOL appVpnUsed;                           //@synthesize appVpnUsed=_appVpnUsed - In the implementation block
+./usr/lib/libAWDSupportFramework.dylib/AWDVPNSession.h:-(void)setAppVpnUsed:(BOOL)arg1 ;
+./usr/lib/libAWDSupportFramework.dylib/AWDVPNSession.h:-(void)setHasAppVpnUsed:(BOOL)arg1 ;
+./usr/lib/libAWDSupportFramework.dylib/AWDVPNSession.h:-(BOOL)hasAppVpnUsed;
+./usr/lib/libAWDSupportFramework.dylib/AWDVPNSession.h:-(BOOL)appVpnUsed;
+./usr/lib/libAWDSupportFramework.dylib/libAWDSupportFramework.dylib.h:#import <libAWDSupportFramework.dylib/AWDVPNSession.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IKEv2.h:@class NSString, NSNumber, CEMNetworkVPNDeclaration_SecurityAssociationParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IKEv2.h:@interface CEMNetworkVPNDeclaration_IKEv2 : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IKEv2.h:	CEMNetworkVPNDeclaration_SecurityAssociationParameters* _payloadIKESecurityAssociationParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IKEv2.h:	CEMNetworkVPNDeclaration_SecurityAssociationParameters* _payloadChildSecurityAssociationParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IKEv2.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_SecurityAssociationParameters * payloadIKESecurityAssociationParameters;                //@synthesize payloadIKESecurityAssociationParameters=_payloadIKESecurityAssociationParameters - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IKEv2.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_SecurityAssociationParameters * payloadChildSecurityAssociationParameters;              //@synthesize payloadChildSecurityAssociationParameters=_payloadChildSecurityAssociationParameters - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IKEv2.h:-(void)setPayloadIKESecurityAssociationParameters:(CEMNetworkVPNDeclaration_SecurityAssociationParameters *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IKEv2.h:-(void)setPayloadChildSecurityAssociationParameters:(CEMNetworkVPNDeclaration_SecurityAssociationParameters *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IKEv2.h:-(CEMNetworkVPNDeclaration_SecurityAssociationParameters *)payloadIKESecurityAssociationParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IKEv2.h:-(CEMNetworkVPNDeclaration_SecurityAssociationParameters *)payloadChildSecurityAssociationParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnAllowedCaptiveNetworkPlugin.h:@interface CEMNetworkVPNDeclaration_AlwaysOnAllowedCaptiveNetworkPlugin : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_VPN.h:@interface CEMNetworkVPNDeclaration_VPN : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration_AppLayerVPNMappingItem.h:@interface CEMNetworkVPNAppToAppLayerMappingDeclaration_AppLayerVPNMappingItem : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration_AppLayerVPNMappingItem.h:	NSString* _payloadVPNUUID;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration_AppLayerVPNMappingItem.h:@property (nonatomic,copy) NSString * payloadVPNUUID;                            //@synthesize payloadVPNUUID=_payloadVPNUUID - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration_AppLayerVPNMappingItem.h:+(id)buildWithIdentifier:(id)arg1 withVPNUUID:(id)arg2 withDesignatedRequirement:(id)arg3 withSigningIdentifier:(id)arg4 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration_AppLayerVPNMappingItem.h:+(id)buildRequiredOnlyWithIdentifier:(id)arg1 withVPNUUID:(id)arg2 withDesignatedRequirement:(id)arg3 withSigningIdentifier:(id)arg4 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration_AppLayerVPNMappingItem.h:-(void)setPayloadVPNUUID:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration_AppLayerVPNMappingItem.h:-(NSString *)payloadVPNUUID;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_Status.h:@interface CEMNetworkVPNDeclaration_Status : CEMPayloadBase
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_DNS.h:@interface CEMNetworkVPNDeclaration_DNS : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IPv4.h:@interface CEMNetworkVPNDeclaration_IPv4 : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IPSec.h:@interface CEMNetworkVPNDeclaration_IPSec : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IPSec.h:	NSNumber* _payloadPromptForVPNPIN;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IPSec.h:@property (nonatomic,copy) NSNumber * payloadPromptForVPNPIN;                         //@synthesize payloadPromptForVPNPIN=_payloadPromptForVPNPIN - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IPSec.h:+(id)buildWithRemoteAddress:(id)arg1 withAuthenticationMethod:(id)arg2 withXAuthName:(id)arg3 withXAuthPassword:(id)arg4 withXAuthEnabled:(id)arg5 withXAuthPasswordEncryption:(id)arg6 withLocalIdentifier:(id)arg7 withLocalIdentifierType:(id)arg8 withSharedSecret:(id)arg9 withPayloadCertificateUUID:(id)arg10 withPromptForVPNPIN:(id)arg11 withOnDemandEnabled:(id)arg12 withOnDemandMatchDomainsAlways:(id)arg13 withOnDemandMatchDomainsNever:(id)arg14 withOnDemandMatchDomainsOnRetry:(id)arg15 withOnDemandRules:(id)arg16 withDisconnectOnIdle:(id)arg17 withDisconnectOnIdleTimer:(id)arg18 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IPSec.h:-(void)setPayloadPromptForVPNPIN:(NSNumber *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_IPSec.h:-(NSNumber *)payloadPromptForVPNPIN;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_SecurityAssociationParameters.h:@interface CEMNetworkVPNDeclaration_SecurityAssociationParameters : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_OnDemandRulesElement.h:@class NSArray, NSString, CEMNetworkVPNDeclaration_OnDemandRulesElementActionParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_OnDemandRulesElement.h:@interface CEMNetworkVPNDeclaration_OnDemandRulesElement : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_OnDemandRulesElement.h:	CEMNetworkVPNDeclaration_OnDemandRulesElementActionParameters* _payloadActionParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_OnDemandRulesElement.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_OnDemandRulesElementActionParameters * payloadActionParameters;              //@synthesize payloadActionParameters=_payloadActionParameters - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_OnDemandRulesElement.h:-(void)setPayloadActionParameters:(CEMNetworkVPNDeclaration_OnDemandRulesElementActionParameters *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_OnDemandRulesElement.h:-(CEMNetworkVPNDeclaration_OnDemandRulesElementActionParameters *)payloadActionParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppLayerDeclaration_Status.h:@interface CEMNetworkVPNAppLayerDeclaration_Status : CEMPayloadBase
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_Proxies.h:@interface CEMNetworkVPNDeclaration_Proxies : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_VendorConfig.h:@interface CEMNetworkVPNDeclaration_VendorConfig : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnServiceException.h:@interface CEMNetworkVPNDeclaration_AlwaysOnServiceException : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration_Status.h:@interface CEMNetworkVPNAppToAppLayerMappingDeclaration_Status : CEMPayloadBase
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h:@class NSString, NSNumber, CEMNetworkVPNDeclaration_SecurityAssociationParameters, NSArray;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h:@interface CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h:	CEMNetworkVPNDeclaration_SecurityAssociationParameters* _payloadIKESecurityAssociationParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h:	CEMNetworkVPNDeclaration_SecurityAssociationParameters* _payloadChildSecurityAssociationParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_SecurityAssociationParameters * payloadIKESecurityAssociationParameters;                //@synthesize payloadIKESecurityAssociationParameters=_payloadIKESecurityAssociationParameters - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_SecurityAssociationParameters * payloadChildSecurityAssociationParameters;              //@synthesize payloadChildSecurityAssociationParameters=_payloadChildSecurityAssociationParameters - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h:-(void)setPayloadIKESecurityAssociationParameters:(CEMNetworkVPNDeclaration_SecurityAssociationParameters *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h:-(void)setPayloadChildSecurityAssociationParameters:(CEMNetworkVPNDeclaration_SecurityAssociationParameters *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h:-(CEMNetworkVPNDeclaration_SecurityAssociationParameters *)payloadIKESecurityAssociationParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h:-(CEMNetworkVPNDeclaration_SecurityAssociationParameters *)payloadChildSecurityAssociationParameters;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_PPP.h:@interface CEMNetworkVPNDeclaration_PPP : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppLayerDeclaration.h:@interface CEMNetworkVPNAppLayerDeclaration : CEMConfigurationBase <CEMRegisteredTypeProtocol> {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppLayerDeclaration.h:	NSString* _payloadVPNUUID;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppLayerDeclaration.h:@property (nonatomic,copy) NSString * payloadVPNUUID;                              //@synthesize payloadVPNUUID=_payloadVPNUUID - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppLayerDeclaration.h:+(id)buildWithIdentifier:(id)arg1 withVPNUUID:(id)arg2 withSafariDomains:(id)arg3 withOnDemandMatchAppEnabled:(id)arg4 withSMBDomains:(id)arg5 withProviderType:(id)arg6 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppLayerDeclaration.h:+(id)buildRequiredOnlyWithIdentifier:(id)arg1 withVPNUUID:(id)arg2 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppLayerDeclaration.h:-(void)setPayloadVPNUUID:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppLayerDeclaration.h:-(NSString *)payloadVPNUUID;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration.h:@interface CEMNetworkVPNAppToAppLayerMappingDeclaration : CEMConfigurationBase <CEMRegisteredTypeProtocol> {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration.h:	NSArray* _payloadAppLayerVPNMapping;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration.h:@property (nonatomic,copy) NSArray * payloadAppLayerVPNMapping;              //@synthesize payloadAppLayerVPNMapping=_payloadAppLayerVPNMapping - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration.h:+(id)buildWithIdentifier:(id)arg1 withAppLayerVPNMapping:(id)arg2 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration.h:+(id)buildRequiredOnlyWithIdentifier:(id)arg1 withAppLayerVPNMapping:(id)arg2 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration.h:-(void)setPayloadAppLayerVPNMapping:(NSArray *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNAppToAppLayerMappingDeclaration.h:-(NSArray *)payloadAppLayerVPNMapping;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_VendorConfig.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_VPN.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_OnDemandRulesElement.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_OnDemandRulesElementActionParameters.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_IPv4.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_PPP.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_IPSec.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_IKEv2.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_SecurityAssociationParameters.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_Proxies.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_AlwaysOn.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_AlwaysOnTunnelConfiguration.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_AlwaysOnServiceException.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_AlwaysOnAllowedCaptiveNetworkPlugin.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_DNS.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNDeclaration_Status.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNAppLayerDeclaration.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNAppLayerDeclaration_Status.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNAppToAppLayerMappingDeclaration.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNAppToAppLayerMappingDeclaration_AppLayerVPNMappingItem.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/ConfigurationEngineModel.h:#import <ConfigurationEngineModel/CEMNetworkVPNAppToAppLayerMappingDeclaration_Status.h>
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkSettingsDeclaration.h:	NSNumber* _payloadAllowVPNCreation;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkSettingsDeclaration.h:@property (nonatomic,copy) NSNumber * payloadAllowVPNCreation;                   //@synthesize payloadAllowVPNCreation=_payloadAllowVPNCreation - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkSettingsDeclaration.h:+(id)buildWithIdentifier:(id)arg1 withForceWiFiWhitelisting:(id)arg2 withAllowVPNCreation:(id)arg3 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkSettingsDeclaration.h:-(void)setPayloadAllowVPNCreation:(NSNumber *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkSettingsDeclaration.h:-(NSNumber *)payloadAllowVPNCreation;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_AlwaysOn.h:@interface CEMNetworkVPNDeclaration_AlwaysOn : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@class NSString, CEMNetworkVPNDeclaration_VendorConfig, CEMNetworkVPNDeclaration_VPN, CEMNetworkVPNDeclaration_IPv4, CEMNetworkVPNDeclaration_PPP, CEMNetworkVPNDeclaration_IPSec, CEMNetworkVPNDeclaration_IKEv2, CEMNetworkVPNDeclaration_Proxies, CEMNetworkVPNDeclaration_AlwaysOn, NSNumber, CEMNetworkVPNDeclaration_DNS;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@interface CEMNetworkVPNDeclaration : CEMConfigurationBase <CEMRegisteredTypeProtocol> {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	NSString* _payloadVPNType;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	NSString* _payloadVPNSubType;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	CEMNetworkVPNDeclaration_VendorConfig* _payloadVendorConfig;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	CEMNetworkVPNDeclaration_VPN* _payloadVPN;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	CEMNetworkVPNDeclaration_IPv4* _payloadIPv4;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	CEMNetworkVPNDeclaration_PPP* _payloadPPP;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	CEMNetworkVPNDeclaration_IPSec* _payloadIPSec;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	CEMNetworkVPNDeclaration_IKEv2* _payloadIKEv2;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	CEMNetworkVPNDeclaration_Proxies* _payloadProxies;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	CEMNetworkVPNDeclaration_AlwaysOn* _payloadAlwaysOn;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:	CEMNetworkVPNDeclaration_DNS* _payloadDNS;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) NSString * payloadVPNType;                                                //@synthesize payloadVPNType=_payloadVPNType - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) NSString * payloadVPNSubType;                                             //@synthesize payloadVPNSubType=_payloadVPNSubType - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_VendorConfig * payloadVendorConfig;              //@synthesize payloadVendorConfig=_payloadVendorConfig - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_VPN * payloadVPN;                                //@synthesize payloadVPN=_payloadVPN - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_IPv4 * payloadIPv4;                              //@synthesize payloadIPv4=_payloadIPv4 - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_PPP * payloadPPP;                                //@synthesize payloadPPP=_payloadPPP - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_IPSec * payloadIPSec;                            //@synthesize payloadIPSec=_payloadIPSec - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_IKEv2 * payloadIKEv2;                            //@synthesize payloadIKEv2=_payloadIKEv2 - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_Proxies * payloadProxies;                        //@synthesize payloadProxies=_payloadProxies - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_AlwaysOn * payloadAlwaysOn;                      //@synthesize payloadAlwaysOn=_payloadAlwaysOn - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:@property (nonatomic,copy) CEMNetworkVPNDeclaration_DNS * payloadDNS;                                //@synthesize payloadDNS=_payloadDNS - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:+(id)buildWithIdentifier:(id)arg1 withVPNType:(id)arg2 withVPNSubType:(id)arg3 withUserDefinedName:(id)arg4 withVendorConfig:(id)arg5 withVPN:(id)arg6 withIPv4:(id)arg7 withPPP:(id)arg8 withIPSec:(id)arg9 withIKEv2:(id)arg10 withProxies:(id)arg11 withAlwaysOn:(id)arg12 withDisconnectOnIdle:(id)arg13 withDisconnectOnIdleTimer:(id)arg14 withDNS:(id)arg15 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:+(id)buildRequiredOnlyWithIdentifier:(id)arg1 withVPNType:(id)arg2 withUserDefinedName:(id)arg3 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadVPNType:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadVPNSubType:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadVendorConfig:(CEMNetworkVPNDeclaration_VendorConfig *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadVPN:(CEMNetworkVPNDeclaration_VPN *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadIPv4:(CEMNetworkVPNDeclaration_IPv4 *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadPPP:(CEMNetworkVPNDeclaration_PPP *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadIPSec:(CEMNetworkVPNDeclaration_IPSec *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadIKEv2:(CEMNetworkVPNDeclaration_IKEv2 *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadProxies:(CEMNetworkVPNDeclaration_Proxies *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadAlwaysOn:(CEMNetworkVPNDeclaration_AlwaysOn *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(void)setPayloadDNS:(CEMNetworkVPNDeclaration_DNS *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(NSString *)payloadVPNType;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(NSString *)payloadVPNSubType;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(CEMNetworkVPNDeclaration_VendorConfig *)payloadVendorConfig;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(CEMNetworkVPNDeclaration_VPN *)payloadVPN;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(CEMNetworkVPNDeclaration_IPv4 *)payloadIPv4;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(CEMNetworkVPNDeclaration_PPP *)payloadPPP;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(CEMNetworkVPNDeclaration_IPSec *)payloadIPSec;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(CEMNetworkVPNDeclaration_IKEv2 *)payloadIKEv2;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(CEMNetworkVPNDeclaration_Proxies *)payloadProxies;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(CEMNetworkVPNDeclaration_AlwaysOn *)payloadAlwaysOn;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration.h:-(CEMNetworkVPNDeclaration_DNS *)payloadDNS;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMNetworkVPNDeclaration_OnDemandRulesElementActionParameters.h:@interface CEMNetworkVPNDeclaration_OnDemandRulesElementActionParameters : CEMPayloadBase {
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMApplicationInstallDeclaration.h:	NSString* _payloadVPNUUID;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMApplicationInstallDeclaration.h:@property (nonatomic,copy) NSString * payloadVPNUUID;                            //@synthesize payloadVPNUUID=_payloadVPNUUID - In the implementation block
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMApplicationInstallDeclaration.h:+(id)buildWithIdentifier:(id)arg1 withApplication:(id)arg2 withMandatory:(id)arg3 withInstallWhenActivated:(id)arg4 withRemoveWhenDeactivated:(id)arg5 withManageData:(id)arg6 withVPNUUID:(id)arg7 withPreventDataBackup:(id)arg8 withConfiguration:(id)arg9 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMApplicationInstallDeclaration.h:-(void)setPayloadVPNUUID:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/ConfigurationEngineModel.framework/CEMApplicationInstallDeclaration.h:-(NSString *)payloadVPNUUID;
+./System/Library/PrivateFrameworks/AVConference.framework/VCConnectionIDS.h:@property (readonly) BOOL isVPN;
+./System/Library/PrivateFrameworks/AVConference.framework/VCConnectionIDS.h:-(BOOL)isVPN;
+./System/Library/PrivateFrameworks/AVConference.framework/AVConference-Structs.h:	BOOL preferNonVPN;
+./System/Library/PrivateFrameworks/AVConference.framework/VCConnectionLegacy.h:@property (readonly) BOOL isVPN;
+./System/Library/PrivateFrameworks/AVConference.framework/VCConnectionLegacy.h:-(BOOL)isVPN;
+./System/Library/PrivateFrameworks/AVConference.framework/VCConnectionSelector.h:-(void)updateConnectionSelectionPolicyWithPreferRelayOverP2P:(BOOL)arg1 preferNonVPN:(BOOL)arg2 ;
+./System/Library/PrivateFrameworks/AVConference.framework/VCConnectionProtocol.h:@property (readonly) BOOL isVPN;
+./System/Library/PrivateFrameworks/AVConference.framework/VCConnectionProtocol.h:-(BOOL)isVPN;
+./System/Library/PrivateFrameworks/AVConference.framework/VCConnection.h:-(long long)compareVpnPriority:(id)arg1 selectionPolicy:(SCD_Struct_VC84*)arg2 ;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCCalDAVAccountPayload.h:#import <libobjc.A.dylib/MCPerAccountVPNPayloadProtocol.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCCalDAVAccountPayload.h:@interface MCCalDAVAccountPayload : MCPayload <MCPerAccountVPNPayloadProtocol> {
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCCalDAVAccountPayload.h:	NSString* _VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCCalDAVAccountPayload.h:@property (nonatomic,retain,readonly) NSString * VPNUUID;                                //@synthesize VPNUUID=_VPNUUID - In the implementation block
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCCalDAVAccountPayload.h:-(NSString *)VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCVPNPayloadBase.h:@interface MCVPNPayloadBase : MCPayload {
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCVPNPayloadBase.h:	NSString* _vpnType;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCVPNPayloadBase.h:@property (nonatomic,copy) NSString * vpnType;                                            //@synthesize vpnType=_vpnType - In the implementation block
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCVPNPayloadBase.h:+(id)NEAlwaysOnVPNPayloadBaseDelegateWithConfigurationDict:(id)arg1 ;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCVPNPayloadBase.h:+(id)NEVPNPayloadBaseDelegateWithConfigurationDict:(id)arg1 ;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCVPNPayloadBase.h:-(NSString *)vpnType;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCVPNPayloadBase.h:-(void)setVpnType:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCSubCalAccountPayload.h:#import <libobjc.A.dylib/MCPerAccountVPNPayloadProtocol.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCSubCalAccountPayload.h:@interface MCSubCalAccountPayload : MCPayload <MCPerAccountVPNPayloadProtocol> {
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCSubCalAccountPayload.h:	NSString* _VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCSubCalAccountPayload.h:@property (nonatomic,retain,readonly) NSString * VPNUUID;                                //@synthesize VPNUUID=_VPNUUID - In the implementation block
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCSubCalAccountPayload.h:-(NSString *)VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCAlwaysOnVPNPayload.h:#import <ManagedConfiguration/MCVPNPayloadBase.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCAlwaysOnVPNPayload.h:@interface MCAlwaysOnVPNPayload : MCVPNPayloadBase
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCLDAPAccountPayload.h:#import <libobjc.A.dylib/MCPerAccountVPNPayloadProtocol.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCLDAPAccountPayload.h:@interface MCLDAPAccountPayload : MCPayload <MCPerAccountVPNPayloadProtocol> {
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCLDAPAccountPayload.h:	NSString* _VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCLDAPAccountPayload.h:@property (nonatomic,retain,readonly) NSString * VPNUUID;                                //@synthesize VPNUUID=_VPNUUID - In the implementation block
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCLDAPAccountPayload.h:-(NSString *)VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCVPNPayload.h:#import <ManagedConfiguration/MCVPNPayloadBase.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCVPNPayload.h:@interface MCVPNPayload : MCVPNPayloadBase
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration.h:#import <ManagedConfiguration/MCAlwaysOnVPNPayload.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration.h:#import <ManagedConfiguration/MCVPNPayload.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration.h:#import <ManagedConfiguration/MCVPNPayloadBase.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration.h:#import <ManagedConfiguration/MCAppLayerVPNPayload.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCProfileConnection.h:-(BOOL)isVPNCreationAllowed;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCAppLayerVPNPayload.h:#import <ManagedConfiguration/MCVPNPayloadBase.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCAppLayerVPNPayload.h:@interface MCAppLayerVPNPayload : MCVPNPayloadBase {
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCAppLayerVPNPayload.h:	NSString* _VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCAppLayerVPNPayload.h:@property (nonatomic,retain) NSString * VPNUUID;                                       //@synthesize VPNUUID=_VPNUUID - In the implementation block
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCAppLayerVPNPayload.h:-(NSString *)VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCAppLayerVPNPayload.h:-(void)setVPNUUID:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCCardDAVAccountPayload.h:#import <libobjc.A.dylib/MCPerAccountVPNPayloadProtocol.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCCardDAVAccountPayload.h:@interface MCCardDAVAccountPayload : MCPayload <MCPerAccountVPNPayloadProtocol> {
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCCardDAVAccountPayload.h:	NSString* _VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCCardDAVAccountPayload.h:@property (nonatomic,retain,readonly) NSString * VPNUUID;                                //@synthesize VPNUUID=_VPNUUID - In the implementation block
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCCardDAVAccountPayload.h:-(NSString *)VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCEmailAccountPayloadBase.h:#import <libobjc.A.dylib/MCPerAccountVPNPayloadProtocol.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCEmailAccountPayloadBase.h:@interface MCEmailAccountPayloadBase : MCPayload <MCPerAccountVPNPayloadProtocol> {
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCEmailAccountPayloadBase.h:	NSString* _VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCEmailAccountPayloadBase.h:@property (nonatomic,retain,readonly) NSString * VPNUUID;                                                                             //@synthesize VPNUUID=_VPNUUID - In the implementation block
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCEmailAccountPayloadBase.h:-(NSString *)VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCGmailAccountPayload.h:#import <libobjc.A.dylib/MCPerAccountVPNPayloadProtocol.h>
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCGmailAccountPayload.h:@interface MCGmailAccountPayload : MCPayload <MCPerAccountVPNPayloadProtocol> {
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCGmailAccountPayload.h:	NSString* _VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCGmailAccountPayload.h:@property (nonatomic,retain,readonly) NSString * VPNUUID;                                //@synthesize VPNUUID=_VPNUUID - In the implementation block
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCGmailAccountPayload.h:-(NSString *)VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCPerAccountVPNPayloadProtocol.h:@protocol MCPerAccountVPNPayloadProtocol
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCPerAccountVPNPayloadProtocol.h:@property (nonatomic,retain,readonly) NSString * VPNUUID;
+./System/Library/PrivateFrameworks/ManagedConfiguration.framework/MCPerAccountVPNPayloadProtocol.h:-(NSString *)VPNUUID;
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarData.h:	_UIStatusBarDataEntry* _vpnEntry;
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarData.h:@property (nonatomic,copy) _UIStatusBarDataEntry * vpnEntry;                                               //@synthesize vpnEntry=_vpnEntry - In the implementation block
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarData.h:-(_UIStatusBarDataEntry *)vpnEntry;
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarData.h:-(void)setVpnEntry:(_UIStatusBarDataEntry *)arg1 ;
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarIndicatorVPNItem.h:@interface _UIStatusBarIndicatorVPNItem : _UIStatusBarIndicatorItem
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarVPNDisconnectView.h:@interface _UIStatusBarVPNDisconnectView : UIView <CAAnimationDelegate, _UIStatusBarDisplayable> {
+./System/Library/PrivateFrameworks/UIKitCore.framework/UIKitCore.h:#import <UIKitCore/_UIStatusBarVPNDisconnectView.h>
+./System/Library/PrivateFrameworks/UIKitCore.framework/UIKitCore.h:#import <UIKitCore/_UIStatusBarIndicatorVPNItem.h>
+./System/Library/PrivateFrameworks/UIKitCore.framework/UIKitCore.h:#import <UIKitCore/_UIStatusBarVPNDisconnectItem.h>
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarVPNDisconnectItem.h:@class _UIStatusBarVPNDisconnectView, NSTimer;
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarVPNDisconnectItem.h:@interface _UIStatusBarVPNDisconnectItem : _UIStatusBarItem {
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarVPNDisconnectItem.h:	_UIStatusBarVPNDisconnectView* _disconnectView;
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarVPNDisconnectItem.h:@property (nonatomic,retain) _UIStatusBarVPNDisconnectView * disconnectView;              //@synthesize disconnectView=_disconnectView - In the implementation block
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarVPNDisconnectItem.h:-(_UIStatusBarVPNDisconnectView *)disconnectView;
+./System/Library/PrivateFrameworks/UIKitCore.framework/_UIStatusBarVPNDisconnectItem.h:-(void)setDisconnectView:(_UIStatusBarVPNDisconnectView *)arg1 ;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1StartManagingAppRequest.h:	NSString* _VPNUUIDString;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1StartManagingAppRequest.h:@property (nonatomic,copy) NSString * VPNUUIDString;                                       //@synthesize VPNUUIDString=_VPNUUIDString - In the implementation block
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1StartManagingAppRequest.h:-(NSString *)VPNUUIDString;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1StartManagingAppRequest.h:-(void)setVPNUUIDString:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DeviceManagement.h:#import <DeviceManagement/DMFSetAppVPNUUIDRequest.h>
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1InstallAppRequest.h:	NSString* _VPNUUIDString;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1InstallAppRequest.h:@property (nonatomic,copy) NSString * VPNUUIDString;                                       //@synthesize VPNUUIDString=_VPNUUIDString - In the implementation block
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1InstallAppRequest.h:-(NSString *)VPNUUIDString;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1InstallAppRequest.h:-(void)setVPNUUIDString:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1UpdateAppRequest.h:	NSString* _VPNUUIDString;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1UpdateAppRequest.h:@property (nonatomic,copy) NSString * VPNUUIDString;                                       //@synthesize VPNUUIDString=_VPNUUIDString - In the implementation block
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1UpdateAppRequest.h:-(NSString *)VPNUUIDString;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFMDMv1UpdateAppRequest.h:-(void)setVPNUUIDString:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFApp.h:	NSString* _VPNUUIDString;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFApp.h:@property (nonatomic,copy) NSString * VPNUUIDString;                                         //@synthesize VPNUUIDString=_VPNUUIDString - In the implementation block
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFApp.h:-(NSString *)VPNUUIDString;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFApp.h:-(void)setVPNUUIDString:(NSString *)arg1 ;
+./System/Library/PrivateFrameworks/DeviceManagement.framework/DMFSetAppVPNUUIDRequest.h:@interface DMFSetAppVPNUUIDRequest : DMFAppRequest {
+./System/Library/PrivateFrameworks/TVPlayback.framework/_TVPNamedImageRepresentation.h:@interface _TVPNamedImageRepresentation : TVPImageRepresentation {
+./System/Library/PrivateFrameworks/TVPlayback.framework/TVPNavigationFadeAnimator.h:@interface TVPNavigationFadeAnimator : NSObject <UIViewControllerAnimatedTransitioning> {
+./System/Library/PrivateFrameworks/TVPlayback.framework/TVPNavigationController.h:@interface TVPNavigationController : UINavigationController <UINavigationControllerDelegate>
+./System/Library/PrivateFrameworks/TVPlayback.framework/TVPlayback.h:#import <TVPlayback/TVPNavigationFadeAnimator.h>
+./System/Library/PrivateFrameworks/TVPlayback.framework/TVPlayback.h:#import <TVPlayback/_TVPNamedImageRepresentation.h>
+./System/Library/PrivateFrameworks/TVPlayback.framework/TVPlayback.h:#import <TVPlayback/TVPNavigationController.h>
+./System/Library/PrivateFrameworks/AccountsDaemon.framework/ACDDatabaseInitializer.h:-(void)_addDocumentsAndVPNDataclass;
+./System/Library/PrivateFrameworks/iCalendar.framework/ICSEvent.h:@property (assign,nonatomic) BOOL x_wr_rsvpneeded;
+./System/Library/PrivateFrameworks/iCalendar.framework/ICSEvent.h:-(void)setX_wr_rsvpneeded:(BOOL)arg1 ;
+./System/Library/PrivateFrameworks/iCalendar.framework/ICSEvent.h:-(BOOL)x_wr_rsvpneeded;
+./System/Library/PrivateFrameworks/MobileContainerManager.framework/MobileContainerManager.h:#import <MobileContainerManager/MCMVPNPluginContainer.h>
+./System/Library/PrivateFrameworks/MobileContainerManager.framework/MobileContainerManager.h:#import <MobileContainerManager/MCMVPNPluginDataContainer.h>
+./System/Library/PrivateFrameworks/MobileContainerManager.framework/MCMVPNPluginContainer.h:@interface MCMVPNPluginContainer : MCMContainer
+./System/Library/PrivateFrameworks/MobileContainerManager.framework/MCMVPNPluginDataContainer.h:@interface MCMVPNPluginDataContainer : MCMDataContainer
+./System/Library/PrivateFrameworks/PineBoardServices.framework/PBSOSUpdateSettings.h:	NSString* _vpnProfileServerURLString;
+./System/Library/PrivateFrameworks/PineBoardServices.framework/PBSOSUpdateSettings.h:@property (nonatomic,copy,readonly) NSString * vpnProfileServerURLString;                                                                        //@synthesize vpnProfileServerURLString=_vpnProfileServerURLString - In the implementation block
+./System/Library/PrivateFrameworks/PineBoardServices.framework/PBSOSUpdateSettings.h:-(NSString *)vpnProfileServerURLString;
+./System/Library/PrivateFrameworks/PineBoardServices.framework/PineBoardServices.h:#import <PineBoardServices/PBSVPNSettings.h>
+./System/Library/PrivateFrameworks/PineBoardServices.framework/PBSVPNSettings.h:@interface PBSVPNSettings : NSObject
+./System/Library/Frameworks/Network.framework/NWPath.h:@property (getter=isPerAppVPN,nonatomic,readonly) BOOL perAppVPN;
+./System/Library/Frameworks/Network.framework/NWPath.h:-(BOOL)isPerAppVPN;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:	BOOL _vpnActive;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:	int _vpnNotifyToken;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:	NWMonitor* _vpnMonitor;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:	NSMutableDictionary* _perAppVPNEvaluators;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:@property (retain) NWMonitor * vpnMonitor;                                               //@synthesize vpnMonitor=_vpnMonitor - In the implementation block
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:@property (assign) int vpnNotifyToken;                                                   //@synthesize vpnNotifyToken=_vpnNotifyToken - In the implementation block
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:@property (retain) NSMutableDictionary * perAppVPNEvaluators;                            //@synthesize perAppVPNEvaluators=_perAppVPNEvaluators - In the implementation block
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:@property (assign,getter=isVPNActive,nonatomic) BOOL vpnActive;                          //@synthesize vpnActive=_vpnActive - In the implementation block
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:-(void)registerForVPNNotifications;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:-(void)updateVPNMonitor;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:-(BOOL)isVPNActive;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:-(void)setVpnActive:(BOOL)arg1 ;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:-(NWMonitor *)vpnMonitor;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:-(void)setVpnMonitor:(NWMonitor *)arg1 ;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:-(int)vpnNotifyToken;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:-(void)setVpnNotifyToken:(int)arg1 ;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:-(NSMutableDictionary *)perAppVPNEvaluators;
+./System/Library/Frameworks/Network.framework/NWSystemPathMonitor.h:-(void)setPerAppVPNEvaluators:(NSMutableDictionary *)arg1 ;
+./System/Library/Frameworks/CoreServices.framework/LSApplicationProxy.h:@property (nonatomic,readonly) NSArray * VPNPlugins;
+./System/Library/Frameworks/CoreServices.framework/LSVPNPluginProxy.h:@interface LSVPNPluginProxy : LSBundleProxy <NSSecureCoding>
+./System/Library/Frameworks/CoreServices.framework/LSVPNPluginProxy.h:+(id)VPNPluginProxyForIdentifier:(id)arg1 ;
+./System/Library/Frameworks/CoreServices.framework/LSVPNPluginProxy.h:+(id)VPNPluginProxyForIdentifier:(id)arg1 withContext:(LSContext*)arg2 ;
+./System/Library/Frameworks/CoreServices.framework/LSApplicationRecord.h:@property (readonly) NSArray * VPNPlugins;
+./System/Library/Frameworks/CoreServices.framework/LSApplicationRecord.h:-(id)VPNPluginsWithContext:(LSContext*)arg1 tableID:(unsigned)arg2 unitID:(unsigned)arg3 unitBytes:(const LSBundleData*)arg4 ;
+./System/Library/Frameworks/CoreServices.framework/LSApplicationRecord.h:-(NSArray *)VPNPlugins;
+./System/Library/Frameworks/CoreServices.framework/LSApplicationRecord.h:-(void)_LSRecord_resolve_VPNPlugins;
+./System/Library/Frameworks/CoreServices.framework/LSApplicationWorkspace.h:-(id)applicationsWithVPNPlugins;
+./System/Library/Frameworks/CoreServices.framework/CoreServices.h:#import <CoreServices/LSVPNPluginProxy.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNNetworkAgent.h:@interface NEVPNNetworkAgent : NENetworkAgent
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolPlugin.h:#import <NetworkExtension/NEVPNProtocol.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolPlugin.h:@interface NEVPNProtocolPlugin : NEVPNProtocol {
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIPSec.h:#import <NetworkExtension/NEVPNProtocol.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIPSec.h:@interface NEVPNProtocolIPSec : NEVPNProtocol {
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProviderSession.h:#import <NetworkExtension/NEVPNConnection.h>
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProviderSession.h:@interface NETunnelProviderSession : NEVPNConnection
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:@class NEVPNConnection, NEConfiguration, NSArray, NSString, NEVPNProtocol;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:@interface NEVPNManager : NSObject <NEPrettyDescription> {
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:	NEVPNConnection* _connection;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:@property (retain) NEVPNProtocol * protocol;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:@property (retain) NEVPNProtocol * protocolConfiguration;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:@property (readonly) NEVPNConnection * connection;                      //@synthesize connection=_connection - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:-(NEVPNProtocol *)protocol;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:-(NEVPNConnection *)connection;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:-(void)setProtocol:(NEVPNProtocol *)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:-(void)setProtocolConfiguration:(NEVPNProtocol *)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNManager.h:-(NEVPNProtocol *)protocolConfiguration;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNApp.h:#import <NetworkExtension/NEVPN.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNApp.h:@interface NEVPNApp : NEVPN {
+./System/Library/Frameworks/NetworkExtension.framework/NEProfileIngestion.h:-(BOOL)enableAlwaysOnVpnInternal:(BOOL)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEProfileIngestion.h:-(BOOL)enableAlwaysOnVpn;
+./System/Library/Frameworks/NetworkExtension.framework/NEProfileIngestion.h:-(BOOL)updateAppLayerVPNMappingRules:(id)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NETransparentProxyManager.h:#import <NetworkExtension/NEVPNManager.h>
+./System/Library/Frameworks/NetworkExtension.framework/NETransparentProxyManager.h:@interface NETransparentProxyManager : NEVPNManager
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:@class NSUUID, NSString, NEVPN, NEAOVPN, NEVPNApp, NEContentFilter, NEProfileIngestionPayloadInfo, NEPathController, NEDNSProxy, NEDNSSettingsBundle, NEAppPush;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:	NEVPN* _VPN;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:	NEAOVPN* _alwaysOnVPN;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:	NEVPNApp* _appVPN;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:@property (copy) NEVPN * VPN;                                              //@synthesize VPN=_VPN - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:@property (copy) NEAOVPN * alwaysOnVPN;                                    //@synthesize alwaysOnVPN=_alwaysOnVPN - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:@property (copy) NEVPNApp * appVPN;                                        //@synthesize appVPN=_appVPN - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(NEVPN *)VPN;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(NEVPNApp *)appVPN;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(void)setVPN:(NEVPN *)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(NEAOVPN *)alwaysOnVPN;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(void)setAlwaysOnVPN:(NEAOVPN *)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(void)setAppVPN:(NEVPNApp *)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(id)initWithVPNPayload:(id)arg1 configurationName:(id)arg2 grade:(long long)arg3 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(id)initWithAlwaysOnVPNPayload:(id)arg1 configurationName:(id)arg2 grade:(long long)arg3 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(id)initWithAppLayerVPNPayload:(id)arg1 configurationName:(id)arg2 grade:(long long)arg3 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)setConfigurationVPNPassword:(id)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)configureVpnOnDemandRules:(id)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)configureIKE:(id)arg1 vpnType:(id)arg2 payloadBase:(id)arg3 vpn:(id)arg4 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)configurePPPWithVPNOptions:(id)arg1 payloadBase:(id)arg2 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)ingestIPSecDict:(id)arg1 vpnType:(id)arg2 vpn:(id)arg3 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)configureVpnOnDemand:(id)arg1 vpnType:(id)arg2 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)setAppLayerVPNRuleSettings:(id)arg1 withAppIdentifier:(id)arg2 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(id)configureAOVPNTunnelFromTunnelDict:(id)arg1 tunnelDict:(id)arg2 payloadBase:(id)arg3 interfaceType:(id)arg4 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)setCertificatesVPN:(id)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)setCertificatesAppVPN:(id)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)setCertificatesAOVpn:(id)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(id)getPendingCertificateUUIDsVPN:(id)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(id)getPendingCertificateUUIDsAppVPN:(id)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(id)getPendingCertificateUUIDsAOVpn:(id)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfiguration.h:-(BOOL)setAppLayerVPNUUID:(id)arg1 andSafariDomains:(id)arg2 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIKEv2.h:#import <NetworkExtension/NEVPNProtocolIPSec.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIKEv2.h:@class NSString, NEVPNIKEv2SecurityAssociationParameters, NSArray;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIKEv2.h:@interface NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIKEv2.h:	NEVPNIKEv2SecurityAssociationParameters* _IKESecurityAssociationParameters;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIKEv2.h:	NEVPNIKEv2SecurityAssociationParameters* _childSecurityAssociationParameters;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIKEv2.h:@property (readonly) NEVPNIKEv2SecurityAssociationParameters * IKESecurityAssociationParameters;                //@synthesize IKESecurityAssociationParameters=_IKESecurityAssociationParameters - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIKEv2.h:@property (readonly) NEVPNIKEv2SecurityAssociationParameters * childSecurityAssociationParameters;              //@synthesize childSecurityAssociationParameters=_childSecurityAssociationParameters - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIKEv2.h:-(NEVPNIKEv2SecurityAssociationParameters *)IKESecurityAssociationParameters;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolIKEv2.h:-(NEVPNIKEv2SecurityAssociationParameters *)childSecurityAssociationParameters;
+./System/Library/Frameworks/NetworkExtension.framework/NEDNSProxyProviderProtocol.h:#import <NetworkExtension/NEVPNProtocol.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEDNSProxyProviderProtocol.h:@interface NEDNSProxyProviderProtocol : NEVPNProtocol {
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProviderProtocol.h:#import <NetworkExtension/NEVPNProtocol.h>
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProviderProtocol.h:@interface NETunnelProviderProtocol : NEVPNProtocol {
+./System/Library/Frameworks/NetworkExtension.framework/NEAOVPNException.h:@interface NEAOVPNException : NSObject <NSSecureCoding, NSCopying> {
+./System/Library/Frameworks/NetworkExtension.framework/NEFlowDivertPluginDriver.h:@protocol NEFlowDivertPluginDriver <NEVPNPluginDriver>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEAOVPNException.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEAOVPN.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNNetworkAgent.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEAppVPNNetworkAgent.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEAOVPNNetworkAgent.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEProfilePayloadAOVPN.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEProfilePayloadBaseVPN.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPN.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNApp.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNConnection.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNManager.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNProtocol.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNIKEv2SecurityAssociationParameters.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNProtocolIKEv2.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNIKEv1ProposalParameters.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNProtocolIPSec.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNProtocolL2TP.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNProtocolPlugin.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNProtocolPPP.h>
+./System/Library/Frameworks/NetworkExtension.framework/NetworkExtension.h:#import <NetworkExtension/NEVPNProtocolPPTP.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocol.h:@interface NEVPNProtocol : NSObject <NEConfigurationValidating, NEPrettyDescription, NEConfigurationLegacySupport, NSCopying, NSSecureCoding> {
+./System/Library/Frameworks/NetworkExtension.framework/NEProfilePayloadBaseVPN.h:@interface NEProfilePayloadBaseVPN : NEProfilePayloadBase {
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNPluginDriver.h:@protocol NEVPNPluginDriver <NEPluginDriver>
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolPPTP.h:#import <NetworkExtension/NEVPNProtocolPPP.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolPPTP.h:@interface NEVPNProtocolPPTP : NEVPNProtocolPPP {
+./System/Library/Frameworks/NetworkExtension.framework/NEAppProxyFlow.h:+(id)flowErrorForVPNFlowError:(long long)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEAppProxyFlow.h:+(CFErrorRef)copyVPNFlowErrorFromFlowError:(id)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEAOVPNNetworkAgent.h:@interface NEAOVPNNetworkAgent : NENetworkAgent
+./System/Library/Frameworks/NetworkExtension.framework/NEProviderAppConfigurationClient.h:@class NSXPCListener, NEVPNManager, NEFilterManager, NEDNSProxyManager, NEDNSSettingsManager, NSMutableArray, NSString, NSXPCConnection, NSXPCListenerEndpoint;
+./System/Library/Frameworks/NetworkExtension.framework/NEProviderAppConfigurationClient.h:	NEVPNManager* _currentManager;
+./System/Library/Frameworks/NetworkExtension.framework/NEProviderAppConfigurationClient.h:@property (retain) NEVPNManager * currentManager;                                //@synthesize currentManager=_currentManager - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEProviderAppConfigurationClient.h:-(void)setCurrentManager:(NEVPNManager *)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEProviderAppConfigurationClient.h:-(NEVPNManager *)currentManager;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:	BOOL _isVPNPublicAPI;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:	BOOL _isVPNPrivateAPI;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:	BOOL _hasVPNAPIEntitlement;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:@property (assign) BOOL isVPNPublicAPI;                                                       //@synthesize isVPNPublicAPI=_isVPNPublicAPI - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:@property (assign) BOOL isVPNPrivateAPI;                                                      //@synthesize isVPNPrivateAPI=_isVPNPrivateAPI - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:@property (assign) BOOL hasVPNAPIEntitlement;                                                 //@synthesize hasVPNAPIEntitlement=_hasVPNAPIEntitlement - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:-(BOOL)isVPNPublicAPI;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:-(void)handlePluginTypesRemoved:(id)arg1 configuration:(id)arg2 vpn:(id)arg3 updateSCPreferences:(SCPreferencesRef)arg4 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:-(void)setIsVPNPublicAPI:(BOOL)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:-(BOOL)isVPNPrivateAPI;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:-(void)setIsVPNPrivateAPI:(BOOL)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:-(BOOL)hasVPNAPIEntitlement;
+./System/Library/Frameworks/NetworkExtension.framework/NEConfigurationManager.h:-(void)setHasVPNAPIEntitlement:(BOOL)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEAgentTunnelExtension.h:#import <libobjc.A.dylib/NEVPNPluginDriver.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEAgentTunnelExtension.h:@interface NEAgentTunnelExtension : NEAgentExtension <NEExtensionTunnelProviderHostDelegate, NEVPNPluginDriver> {
+./System/Library/Frameworks/NetworkExtension.framework/NEAOVPN.h:@interface NEAOVPN : NSObject <NEConfigurationValidating, NEPrettyDescription, NSSecureCoding, NSCopying> {
+./System/Library/Frameworks/NetworkExtension.framework/NEVPN.h:@class NSArray, NEVPNProtocol;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPN.h:@interface NEVPN : NSObject <NEConfigurationValidating, NEPrettyDescription, NEConfigurationLegacySupport, NSSecureCoding, NSCopying> {
+./System/Library/Frameworks/NetworkExtension.framework/NEVPN.h:	NEVPNProtocol* _protocol;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPN.h:@property (copy) NEVPNProtocol * protocol;                                                                         //@synthesize protocol=_protocol - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEVPN.h:-(NEVPNProtocol *)protocol;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPN.h:-(void)setProtocol:(NEVPNProtocol *)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEProfilePayloadAOVPN.h:@interface NEProfilePayloadAOVPN : NEProfilePayloadBase
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:@class NSDate, NEConfigurationManager, NSString, NSObject, NEVPNManager, NSError;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:@interface NEVPNConnection : NSObject {
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:	NEVPNManager* _weakmanager;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:@property (__weak) NEVPNManager * weakmanager;                                      //@synthesize weakmanager=_weakmanager - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:@property (readonly) NEVPNManager * manager;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:-(NEVPNManager *)manager;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:-(BOOL)startVPNTunnelWithOptions:(id)arg1 andReturnError:(id*)arg2 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:-(void)stopVPNTunnel;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:-(BOOL)startVPNTunnelAndReturnError:(id*)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:-(NEVPNManager *)weakmanager;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNConnection.h:-(void)setWeakmanager:(NEVPNManager *)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NEProfilePayloadHandlerDelegate.h:-(BOOL)setAppLayerVPNRuleSettings:(id)arg1 withAppIdentifier:(id)arg2;
+./System/Library/Frameworks/NetworkExtension.framework/NEProfilePayloadHandlerDelegate.h:-(BOOL)setAppLayerVPNUUID:(id)arg1 andSafariDomains:(id)arg2;
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProvider.h:@class NEVPNProtocol, NSArray, NSString;
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProvider.h:	NEVPNProtocol* _protocolConfiguration;
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProvider.h:@property (retain) NEVPNProtocol * protocolConfiguration;              //@synthesize protocolConfiguration=_protocolConfiguration - In the implementation block
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProvider.h:-(void)setProtocolConfiguration:(NEVPNProtocol *)arg1 ;
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProvider.h:-(NEVPNProtocol *)protocolConfiguration;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolL2TP.h:#import <NetworkExtension/NEVPNProtocolPPP.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolL2TP.h:@interface NEVPNProtocolL2TP : NEVPNProtocolPPP {
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProviderManager.h:#import <NetworkExtension/NEVPNManager.h>
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProviderManager.h:@interface NETunnelProviderManager : NEVPNManager {
+./System/Library/Frameworks/NetworkExtension.framework/NETunnelProviderManager.h:+(id)forPerAppVPN;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNIKEv2SecurityAssociationParameters.h:@interface NEVPNIKEv2SecurityAssociationParameters : NSObject <NEConfigurationValidating, NEPrettyDescription, NSSecureCoding, NSCopying> {
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolPPP.h:#import <NetworkExtension/NEVPNProtocol.h>
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNProtocolPPP.h:@interface NEVPNProtocolPPP : NEVPNProtocol {
+./System/Library/Frameworks/NetworkExtension.framework/NEAppVPNNetworkAgent.h:@interface NEAppVPNNetworkAgent : NENetworkAgent
+./System/Library/Frameworks/NetworkExtension.framework/NEProfileIngestionDelegate.h:-(BOOL)enableAlwaysOnVpn;
+./System/Library/Frameworks/NetworkExtension.framework/NEProfileIngestionDelegate.h:-(BOOL)updateAppLayerVPNMappingRules:(id)arg1;
+./System/Library/Frameworks/NetworkExtension.framework/NEVPNIKEv1ProposalParameters.h:@interface NEVPNIKEv1ProposalParameters : NSObject <NEConfigurationValidating, NEPrettyDescription, NEConfigurationLegacySupport, NSSecureCoding, NSCopying> {
+./System/Library/PreferenceBundles/ManagedConfigurationUI-TV/LSApplicationProxy-ManagedCongurationUITV.h:- (_Bool)hasAppVPN;// IMP=0x000000000002ed94
+./entitlements/Daemons/neagent.plist:		<string>vpn-plugins</string>
+./entitlements/Daemons/mdmd.plist:	<key>com.apple.dmd.operation.set-app-vpn-uuid</key>
+./entitlements/Daemons/profiled.plist:		<string>com.apple.managed.vpn.shared</string>
+./entitlements/Daemons/installd.plist:	<key>com.apple.vpn.installer_events</key>
+./entitlements/Daemons/dmd.plist:		<string>com.apple.managed.vpn.shared</string>
+./entitlements/Daemons/nehelper.plist:		<string>VPN-com.apple.neplugin.IKEv2.plist</string>
+./entitlements/Daemons/nehelper.plist:	<key>com.apple.managedconfiguration.vpn-profile-access</key>
+./entitlements/Daemons/nehelper.plist:		<string>com.apple.managed.vpn.shared</string>
+./Applications/TVSettings/TVSettingsOSUpdateConfiguration.h:    _Bool _requiresVPN;	// 8 = 0x8
+./Applications/TVSettings/TVSettingsOSUpdateConfiguration.h:@property(nonatomic) _Bool requiresVPN; // @synthesize requiresVPN=_requiresVPN;
+./Applications/TVSettings/TVSettingsOSUpdateSeedViewController.h:- (void)_updateVPNItem:(id)arg1;	// IMP=0x00000001000276f8
+./Applications/TVSettings/TVSettingsOSUpdateConfigurationViewController.h:- (void)_warnAboutMissingVPNProfile;	// IMP=0x000000010007aa58
+./Applications/TVSettings/TVSettingsVPNViewController.h:@interface TVSettingsVPNViewController : TSKViewController
+./Applications/TVSettings/TVSettingsVPNViewController.h:- (void)_warnAboutVPNOnInternalNetwork;	// IMP=0x000000010002a0c4
+./Applications/TVSettings/TVSettingsVPNViewController.h:- (void)_checkVPNConfiguration;	// IMP=0x0000000100029ab0
+./Applications/TVSettings/TVSettingsVPNViewController.h:- (void)_VPNProfileLoaded:(id)arg1 error:(id)arg2;	// IMP=0x00000001000294cc
+./Applications/TVSettings/TVSettingsVPNViewController.h:- (void)_loadVPNProfile;	// IMP=0x0000000100029078
+./Applications/TVSettings/TVSettingsVPNViewController.h:- (void)_updateCheckVPNItem:(id)arg1;	// IMP=0x0000000100028d28
+./Applications/TVSettings/TVSettingsVPNViewController.h:- (void)_updateLoadVPNItem:(id)arg1;	// IMP=0x000000010002895c
+./Applications/TVPhotos/TVPNavigationController.h:@interface TVPNavigationController : UINavigationController <UINavigationControllerDelegate>
+./Applications/PineBoard/PBOSUpdateAssetManager.h:- (void)_configureForVPN;	// IMP=0x0000000100143530
+Binary file ./.git/objects/pack/pack-386118eceac6199ce8f109d23437d05db86ab224.pack matches
+Binary file ./.git/objects/42/989d2c6613aa38942771a29887c8ccee1ebb97 matches
+Binary file ./.git/objects/af/6833767038e55c5b980c2e1397457918567e64 matches
+Binary file ./.git/objects/1c/d9f6ddd72f07e467f72e8ef56523dc8276f614 matches
+Binary file ./.git/index matches

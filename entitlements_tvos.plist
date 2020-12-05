@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>platform-application</key>
+	<true/>
+	<key>com.apple.private.security.no-container</key>
+	<true/>
+	<key>com.apple.private.skip-library-validation</key>
+	<true/>
+	<key>application-identifier</key>
+	<string>BBBBBBBBBB.com.nito.vpnd</string>
+	<key>com.apple.developer.team-identifier</key>
+	<string>BBBBBBBBBB</string>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.matchstic.reprovision.tvos</string>
+	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>com.apple.certificates</string>
+		<string>com.apple.coreservices.appleidauthentication.keychainaccessgroup</string>
+		<string>BBBBBBBBBB.com.nito.vpnd</string>
+		<string>com.nito.vpnd</string>
+	</array>
+	<key>com.apple.backboardd.launchapplications</key>
+	<true/>
+	<key>com.apple.multitasking.unlimitedassertions</key>
+	<true/>
+	<key>com.apple.multitasking.systemappassertions</key>
+	<true/>
+	<key>com.apple.managedconfiguration.profiled-access</key>
+	<true/>
+	<key>com.apple.security.system-groups</key>
+	<array>
+		<string>systemgroup.com.apple.configurationprofiles</string>
+	</array>
+	<key>com.apple.developer.networking.vpn.api</key>
+	<array>
+		<string>allow-vpn</string>
+	</array>
+</dict>
+</plist>
