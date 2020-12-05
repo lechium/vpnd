@@ -34,14 +34,6 @@
 - (NEConfiguration *)configuration;
 @end
 
-extern NSString* BKSActivateForEventOptionTypeBackgroundContentFetching;
-extern NSString* BKSOpenApplicationOptionKeyActivateForEvent;
-
-
-typedef enum : NSUInteger {
-    kShowQueuedUpdate,
-} VPNApplicationNotification;
-
 ///////////////////////////////////////////////////////////////////////////
 // Main daemon class
 ///////////////////////////////////////////////////////////////////////////
@@ -329,11 +321,6 @@ typedef enum : NSUInteger {
     return false;
 }
 
-- (void)sb_didFinishLaunchingNotification {
-    // Give the user a notification if they need to sign in to ReProvision after a respring/restart
-    NSLog(@"*** [vpnd] :: SpringBoard did start launching.");
-    
-}
 
 - (void)showBulletinWithTitle:(NSString *)title message:(NSString *)message timeout:(NSInteger)timeout {
     NSMutableDictionary *dict = [NSMutableDictionary new];
