@@ -7,6 +7,13 @@
 #import <UIKit/UIImage.h>
 #define APPLICATION_IDENTIFIER "com.nito.vpnd"
 
+/**
+ 
+ USE_PROFILE attempts to use the full profile rather than cherry picking a few choice pieces of data out of the config profile. that code is very experimental /
+ tempermental and unreliable, especially if you've already created a VPN connection. tread carefully!
+
+ */
+
 //#define USE_PROFILE 1
 
 ///////////////////////////////////////////////////////////////////////////
@@ -42,26 +49,19 @@ typedef enum : NSUInteger {
 @interface VPNDaemonListener ()
     
 @property (nonatomic, strong) NSDictionary *settings;
-
-@property (nonatomic, strong) NSTimer *assertionFallbackTimer;
-
-@property (nonatomic, readwrite) BOOL updateQueuedForUnlock;
-@property (nonatomic, readwrite) BOOL showQueuedAlertWhenDisplayOn;
-
-
-@property (nonatomic, strong) NSTimer *signingTimer;
-
 @property (nonatomic, strong) NSXPCConnection* xpcConnection;
 @property (readwrite, assign) NSInteger interfaceStyle; //UIUserInterfaceStyle
 @property (nonatomic, strong) NEConfiguration *configuration;
 @property (nonatomic, strong) id configurationProfile;
 
 //@property NEVPNManager *vpnManager;
+//DONT DO THIS ^^
+
 @end
 
 @implementation VPNDaemonListener
 
-
+#pragma mark •• Keychain code
 
 + (NSData *)getPasswordRefForAccount:(NSString *)accountKeyStr {
     NSString *bundleId = [NSString stringWithUTF8String:APPLICATION_IDENTIFIER];
@@ -157,6 +157,8 @@ typedef enum : NSUInteger {
     return status;
 }
 
+#pragma mark •• VPN code
+
 - (void)toggleVPN {
     NEVPNStatus status = [VPNDaemonListener currentVPNStatusWithRefresh:true];
       if (status == NEVPNStatusConnected){
@@ -175,7 +177,7 @@ typedef enum : NSUInteger {
     
     id protocolConfig = [[objc_getClass("NEVPNProtocolIKEv2") alloc] init];
     [protocolConfig setServerAddress:server];
-    [protocolConfig setServerCertificateCommonName:server ];
+    [protocolConfig setServerCertificateCommonName:server];
     [protocolConfig setRemoteIdentifier:server];
     [protocolConfig setEnablePFS:YES];
     [protocolConfig setDisableMOBIKE:NO];
@@ -191,8 +193,8 @@ typedef enum : NSUInteger {
     [proxSettings setAutoProxyConfigurationEnabled:YES];
     if (blacklistJavascriptString != nil){ //only add these changes if the blacklist has any enabled items.
         [proxSettings setProxyAutoConfigurationJavaScript: blacklistJavascriptString];
-        //NSLog(@"[vpnd] proxyAutoConfigurationJavaScript %@", [proxSettings proxyAutoConfigurationJavaScript ]);
-        [protocolConfig setProxySettings:proxSettings ];
+        //NSLog(@"[vpnd] proxyAutoConfigurationJavaScript %@", [proxSettings proxyAutoConfigurationJavaScript]);
+        [protocolConfig setProxySettings:proxSettings];
     }
     [[protocolConfig IKESecurityAssociationParameters] setEncryptionAlgorithm:NEVPNIKEv2EncryptionAlgorithmAES256];
     [[protocolConfig IKESecurityAssociationParameters] setIntegrityAlgorithm:NEVPNIKEv2IntegrityAlgorithmSHA384];
@@ -204,8 +206,8 @@ typedef enum : NSUInteger {
     return protocolConfig;
 }
 
-+(id)currentVPNManager {
-   return [NSClassFromString(@"NEVPNManager") sharedManager];
++(NEVPNManager *)currentVPNManager {
+   return [NEVPNManager sharedManager];
 }
 
 + (NEVPNStatus)currentVPNStatusWithRefresh:(BOOL)refresh {

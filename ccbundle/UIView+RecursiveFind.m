@@ -45,20 +45,18 @@
 
 
 - (UIView *)findFirstSubviewWithClass:(Class)theClass {
-    
     if ([self isKindOfClass:theClass]) {
             return self;
         }
-    
     for (UIView *v in self.subviews) {
         UIView *theView = [v findFirstSubviewWithClass:theClass];
-        if (theView != nil)
-        {
+        if (theView != nil){
             return theView;
         }
     }
     return nil;
 }
+
 - (void)printAutolayoutTrace
 {
     // NSString *recursiveDesc = [self performSelector:@selector(recursiveDescription)];
