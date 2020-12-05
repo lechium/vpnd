@@ -11,5 +11,5 @@ vpnd_CODESIGN_FLAGS=-Sentitlements_tvos.plist
 
 include $(THEOS_MAKE_PATH)/tool.mk
 
-SUBPROJECTS += settingsbundle
+SUBPROJECTS += ccbundle
 include $(THEOS_MAKE_PATH)/aggregate.mk
