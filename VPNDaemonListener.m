@@ -53,102 +53,6 @@
 
 @implementation VPNDaemonListener
 
-#pragma mark •• Keychain code
-
-+ (NSData *)getPasswordRefForAccount:(NSString *)accountKeyStr {
-    NSString *bundleId = [NSString stringWithUTF8String:APPLICATION_IDENTIFIER];
-    CFTypeRef copyResult = NULL;
-    NSDictionary *query = @{
-        (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
-        (__bridge id)kSecAttrService : bundleId,
-        (__bridge id)kSecAttrAccount : accountKeyStr,
-        (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitOne,
-        (__bridge id)kSecReturnPersistentRef : (__bridge id)kCFBooleanTrue,
-        (__bridge id)kSecAttrAccessGroup: bundleId,
-    };
-    OSStatus results = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&copyResult);
-    if (results != errSecSuccess) {
-        NSLog(@"[vpnd] error obtaining password ref: %ld", (long)results);
-    }
-    
-    return (__bridge NSData *)copyResult;
-}
-
-+ (NSString *)getPasswordStringForAccount:(NSString *)accountKeyStr {
-    CFTypeRef copyResult = NULL;
-    NSString *passStr = nil;
-    NSString *bundleId = [NSString stringWithUTF8String:APPLICATION_IDENTIFIER];
-    NSDictionary *query = @{
-                            (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
-                            (__bridge id)kSecAttrService : bundleId,
-                            (__bridge id)kSecAttrAccount : accountKeyStr,
-                            (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitOne,
-                            (__bridge id)kSecReturnData : (__bridge id)kCFBooleanTrue,
-                            (__bridge id)kSecAttrAccessGroup: bundleId,
-                            };
-    OSStatus results = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&copyResult);
-    if (results == errSecSuccess) {
-        passStr = [[NSString alloc] initWithBytes:[(__bridge_transfer NSData *)copyResult bytes]
-                                           length:[(__bridge NSData *)copyResult length] encoding:NSUTF8StringEncoding];
-    } else if (results != errSecItemNotFound) {
-        NSLog(@"[VPNDaemonListener] error obtaining password data: %ld", (long)results);
-        if (@available(tvOS 11.3, *)) {
-            NSString *errMessage = CFBridgingRelease(SecCopyErrorMessageString(results, nil));
-            NSLog(@"%@", errMessage);
-        }
-    }
-    
-    return passStr;
-}
-
-+ (OSStatus)removeKeychanItemForAccount:(NSString *)accountKeyStr {
-    NSString *bundleId = [NSString stringWithUTF8String:APPLICATION_IDENTIFIER];
-    NSDictionary *query = @{
-                            (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
-                            (__bridge id)kSecAttrService : bundleId,
-                            (__bridge id)kSecAttrAccount : accountKeyStr,
-                            (__bridge id)kSecReturnPersistentRef : (__bridge id)kCFBooleanTrue,
-                            (__bridge id)kSecAttrAccessGroup: bundleId,
-                            };
-    OSStatus result = SecItemDelete((__bridge CFDictionaryRef)query);
-    if (result != errSecSuccess && result != errSecItemNotFound) {
-        if (@available(tvOS 11.3, *)) {
-            NSString *errMessage = CFBridgingRelease(SecCopyErrorMessageString(result, nil));
-            NSLog(@"%@", errMessage);
-        }
-        NSLog(@"[VPNDaemonListener] error deleting password entry %@ with status: %ld", query, (long)result);
-    }
-    
-    return result;
-}
-
-+ (OSStatus)storePassword:(NSString *)passwordStr forAccount:(NSString *)accountKeyStr {
-    CFTypeRef result = NULL;
-    NSString *bundleId = [NSString stringWithUTF8String:APPLICATION_IDENTIFIER];
-    NSData *valueData = [passwordStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *secItem = @{
-        (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
-        (__bridge id)kSecAttrService : bundleId,
-        (__bridge id)kSecAttrAccessible : (__bridge id)kSecAttrAccessibleAlways,
-        (__bridge id)kSecAttrSynchronizable : (__bridge id)kCFBooleanFalse,
-        (__bridge id)kSecAttrAccount : accountKeyStr,
-        (__bridge id)kSecValueData : valueData,
-        (__bridge id)kSecAttrAccessGroup: bundleId,
-    };
-    OSStatus status = SecItemAdd((__bridge CFDictionaryRef)secItem, &result);
-    if (status == errSecSuccess) {
-        //NSLog(@"[VPNDaemonListener] successfully stored password %@ for %@", passwordStr, accountKeyStr);
-    } else {
-        if (status == errSecDuplicateItem){
-            NSLog(@"[VPNDaemonListener] duplicate item exists for %@ removing and re-adding.", accountKeyStr);
-            [self removeKeychanItemForAccount:accountKeyStr];
-            return [self storePassword:passwordStr forAccount:accountKeyStr];
-        }
-        NSLog(@"[VPNDaemonListener] error storing password (%@): %ld", passwordStr, (long)status);
-    }
-    return status;
-}
-
 #pragma mark •• VPN code
 
 - (void)toggleVPN {
@@ -535,6 +439,102 @@
         id object = [notif object];
         [self handleConnectionStatus:[(NEVPNConnection *)object status]];
     }];
+}
+
+#pragma mark •• Keychain code
+
++ (NSData *)getPasswordRefForAccount:(NSString *)accountKeyStr {
+    NSString *bundleId = [NSString stringWithUTF8String:APPLICATION_IDENTIFIER];
+    CFTypeRef copyResult = NULL;
+    NSDictionary *query = @{
+        (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
+        (__bridge id)kSecAttrService : bundleId,
+        (__bridge id)kSecAttrAccount : accountKeyStr,
+        (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitOne,
+        (__bridge id)kSecReturnPersistentRef : (__bridge id)kCFBooleanTrue,
+        (__bridge id)kSecAttrAccessGroup: bundleId,
+    };
+    OSStatus results = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&copyResult);
+    if (results != errSecSuccess) {
+        NSLog(@"[vpnd] error obtaining password ref: %ld", (long)results);
+    }
+    
+    return (__bridge NSData *)copyResult;
+}
+
++ (NSString *)getPasswordStringForAccount:(NSString *)accountKeyStr {
+    CFTypeRef copyResult = NULL;
+    NSString *passStr = nil;
+    NSString *bundleId = [NSString stringWithUTF8String:APPLICATION_IDENTIFIER];
+    NSDictionary *query = @{
+                            (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
+                            (__bridge id)kSecAttrService : bundleId,
+                            (__bridge id)kSecAttrAccount : accountKeyStr,
+                            (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitOne,
+                            (__bridge id)kSecReturnData : (__bridge id)kCFBooleanTrue,
+                            (__bridge id)kSecAttrAccessGroup: bundleId,
+                            };
+    OSStatus results = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&copyResult);
+    if (results == errSecSuccess) {
+        passStr = [[NSString alloc] initWithBytes:[(__bridge_transfer NSData *)copyResult bytes]
+                                           length:[(__bridge NSData *)copyResult length] encoding:NSUTF8StringEncoding];
+    } else if (results != errSecItemNotFound) {
+        NSLog(@"[VPNDaemonListener] error obtaining password data: %ld", (long)results);
+        if (@available(tvOS 11.3, *)) {
+            NSString *errMessage = CFBridgingRelease(SecCopyErrorMessageString(results, nil));
+            NSLog(@"%@", errMessage);
+        }
+    }
+    
+    return passStr;
+}
+
++ (OSStatus)removeKeychanItemForAccount:(NSString *)accountKeyStr {
+    NSString *bundleId = [NSString stringWithUTF8String:APPLICATION_IDENTIFIER];
+    NSDictionary *query = @{
+                            (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
+                            (__bridge id)kSecAttrService : bundleId,
+                            (__bridge id)kSecAttrAccount : accountKeyStr,
+                            (__bridge id)kSecReturnPersistentRef : (__bridge id)kCFBooleanTrue,
+                            (__bridge id)kSecAttrAccessGroup: bundleId,
+                            };
+    OSStatus result = SecItemDelete((__bridge CFDictionaryRef)query);
+    if (result != errSecSuccess && result != errSecItemNotFound) {
+        if (@available(tvOS 11.3, *)) {
+            NSString *errMessage = CFBridgingRelease(SecCopyErrorMessageString(result, nil));
+            NSLog(@"%@", errMessage);
+        }
+        NSLog(@"[VPNDaemonListener] error deleting password entry %@ with status: %ld", query, (long)result);
+    }
+    
+    return result;
+}
+
++ (OSStatus)storePassword:(NSString *)passwordStr forAccount:(NSString *)accountKeyStr {
+    CFTypeRef result = NULL;
+    NSString *bundleId = [NSString stringWithUTF8String:APPLICATION_IDENTIFIER];
+    NSData *valueData = [passwordStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *secItem = @{
+        (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
+        (__bridge id)kSecAttrService : bundleId,
+        (__bridge id)kSecAttrAccessible : (__bridge id)kSecAttrAccessibleAlways,
+        (__bridge id)kSecAttrSynchronizable : (__bridge id)kCFBooleanFalse,
+        (__bridge id)kSecAttrAccount : accountKeyStr,
+        (__bridge id)kSecValueData : valueData,
+        (__bridge id)kSecAttrAccessGroup: bundleId,
+    };
+    OSStatus status = SecItemAdd((__bridge CFDictionaryRef)secItem, &result);
+    if (status == errSecSuccess) {
+        //NSLog(@"[VPNDaemonListener] successfully stored password %@ for %@", passwordStr, accountKeyStr);
+    } else {
+        if (status == errSecDuplicateItem){
+            NSLog(@"[VPNDaemonListener] duplicate item exists for %@ removing and re-adding.", accountKeyStr);
+            [self removeKeychanItemForAccount:accountKeyStr];
+            return [self storePassword:passwordStr forAccount:accountKeyStr];
+        }
+        NSLog(@"[VPNDaemonListener] error storing password (%@): %ld", passwordStr, (long)status);
+    }
+    return status;
 }
 
 
