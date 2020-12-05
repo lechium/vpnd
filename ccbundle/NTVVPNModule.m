@@ -5,6 +5,7 @@
 #import "UIView+RecursiveFind.h"
 #import "UIImage+Tint.h"
 
+//14+ code
 @interface TVSMButtonViewController (science)
 @property (assign,nonatomic) BOOL toggledOn API_AVAILABLE(tvos(14.0));
 @property (nonatomic,copy) UIColor * symbolTintColor API_AVAILABLE(tvos(14.0));
@@ -13,13 +14,21 @@
 @interface NSDistributedNotificationCenter : NSNotificationCenter
 
 + (id)defaultCenter;
-
 - (void)addObserver:(id)arg1 selector:(SEL)arg2 name:(id)arg3 object:(id)arg4;
 - (void)postNotificationName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
 
 @end
 
 @implementation NTVVPNModule
+
+/**
+
+ abusing NSDistributedNotificationCenter because I couldn't get XPC service to work from a widget. we receive these notifications from vpnd after we query for status
+ by sending this notification name: @"com.nito.vpnd/request-status"
+ 
+ then vpnd relays back @"com.nito.vpnd/connected" & @"com.nito.vpnd/disconnected" respectively.
+
+ */
 
 - (void)receivedVPNOnNotification:(id)note {
     NSLog(@"[NTVVPNModule] the VPN is on!");
@@ -50,7 +59,7 @@
 +(long long)buttonStyle {
     return 1;
 }
-
+//easier to track light/dark mode
 - (BOOL)darkMode {
     return (self.buttonController.view.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark);
 }
@@ -58,37 +67,24 @@
 - (void)updateContentControllerForMode {
     UIColor *onTintColor = [UIColor blackColor];
     if (@available(tvOS 14.0, *)) {
-        if ([self darkMode]){
-               //NSLog(@"[NTVVPNModule] is dark mode!");
-               onTintColor = [UIColor blackColor];
-           } else {
-               //NSLog(@"[NTVVPNModule] is light mode!");
-               onTintColor = [UIColor blackColor];
-           }
+        onTintColor = [UIColor blackColor];
     } else {
         if ([self darkMode]){
-               //NSLog(@"[NTVVPNModule] is dark mode!");
-               onTintColor = [UIColor whiteColor];
-           } else {
-               //NSLog(@"[NTVVPNModule] is light mode!");
-               onTintColor = [UIColor blackColor];
-           }
+            onTintColor = [UIColor whiteColor];
+        }
     }
-   
-    UIImageRenderingMode renderingMode = UIImageRenderingModeAlwaysTemplate;
+    
     self.packageFile = [[self bundle] pathForResource:@"vpn-off" ofType:@"png"];
     if (@available(tvOS 14.0, *)) {
         [self.buttonController setToggledOn:false];
     }
     if (self.vpnOn){
         NSLog(@"[NTVVPNModule] vpn is on!");
-        renderingMode = UIImageRenderingModeAlwaysTemplate;
-        self.packageFile = [[self bundle] pathForResource:@"vpn-off" ofType:@"png"];
         if (@available(tvOS 14.0, *)) {
             NSLog(@"[NTVVPNModule] symbol tint color: %@", [self.buttonController symbolTintColor]);
             [self.buttonController setSymbolTintColor:onTintColor];
             [self.buttonController setToggledOn:true];
-        } else {
+        } else { //tvOS 13 this is kinda hacky but it works for now.
             UIView *bv = [self.buttonController buttonView];
             //NSLog(@"[NTVVPNModule] bv: %@", bv);
             //NSString *recurse = [bv performSelector:@selector(recursiveDescription)];
@@ -105,7 +101,7 @@
     }
     
     NSLog(@"[NTVVPNModule] packageFile: %@", self.packageFile);
-    UIImage *theImage = [[UIImage imageWithContentsOfFile:self.packageFile] imageWithRenderingMode:renderingMode];
+    UIImage *theImage = [[UIImage imageWithContentsOfFile:self.packageFile] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.buttonController setImage:theImage];
 }
 
@@ -116,14 +112,12 @@
     self.buttonController = (TVSMButtonViewController*)[super contentViewController];
     [self.buttonController setStyle:1];
     [self updateContentControllerForMode];
-    //note it is important to utilize something like [[UIImage imageWithContentsOfFile:packageFile] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] to properly support different images for light and dark mode
-
     return self.buttonController;
 }
 
 -(void)handleAction {
-
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"nitotv://extra/togglevpn"] options:@{} completionHandler:nil];    
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"nitotv://extra/togglevpn"] options:@{} completionHandler:nil];
 }
 
 -(BOOL)dismissAfterAction {
