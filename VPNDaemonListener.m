@@ -336,7 +336,6 @@ typedef enum : NSUInteger {
 }
 
 - (void)showBulletinWithTitle:(NSString *)title message:(NSString *)message timeout:(NSInteger)timeout {
-    ;
     NSMutableDictionary *dict = [NSMutableDictionary new];
     dict[@"message"] = message;
     dict[@"title"] = title;
@@ -357,7 +356,6 @@ typedef enum : NSUInteger {
 
 - (void)handleConnectionStatus:(NEVPNStatus)status {
     NSLog(@"[vpnd] handleConnectionStatus: %li", (long)status);
-    ;
     switch (status) {
         case NEVPNStatusConnected:{
             [[self.xpcConnection remoteObjectProxy] daemonReportsStatus:status];
@@ -510,12 +508,12 @@ typedef enum : NSUInteger {
                 if (error){
                     [vpnManager saveToPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
                         NSError *error2 = nil;
-                        [(NEVPNConnection*)[vpnManager connection] startVPNTunnelAndReturnError: &error2];
+                        [[vpnManager connection] startVPNTunnelAndReturnError: &error2];
                         NSLog(@"[vpnd] error: %@", error);
                     }];
                 } else {
                     NSError *error2 = nil;
-                    [(NEVPNConnection*)[vpnManager connection] startVPNTunnelAndReturnError: &error2];
+                    [[vpnManager connection] startVPNTunnelAndReturnError: &error2];
                     NSLog(@"[vpnd] error: %@", error);
                 }
             }];
