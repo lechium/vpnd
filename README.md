@@ -23,6 +23,14 @@ I recommend creating profiles to experiment in [Apple Configurator 2](https://su
 
 @implementation AppDelegate 
 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    //whatever code you already have here, ie setting up UI if not using storyboard
+    
+    [self _setupDaemonConnection];    
+    return YES;
+}
+
 - (void)daemonDidRequestQueuedNotification {
     NSLog(@"*** [nitoTV] :: daemonDidRequestQueuedNotification");
  
@@ -30,9 +38,6 @@ I recommend creating profiles to experiment in [Apple Configurator 2](https://su
 }
 
 - (void)_setupDaemonConnection {
-/*#if TARGET_OS_SIMULATOR
-    return;
-#endif*/
     
     if (self.daemonConnection) {
         [self.daemonConnection invalidate];
@@ -132,19 +137,17 @@ I recommend creating profiles to experiment in [Apple Configurator 2](https://su
 }
 
 - (void)daemonProfileExpired:(BOOL)expired {
-    LOG_SELF;
+    
     if (expired){
-        DDLogInfo(@"VPN MC is expired!");
+        NSLog(@"VPN MC is expired!");
     } else {
-        DDLogInfo(@"VPN MC is not expired!");
+        NSLog(@"VPN MC is not expired!");
     }
 }
 
 - (void)daemonReportsStatus:(NEVPNStatus)status {
-    LOG_SELF;
-    DDLogInfo(@"daemon reported status: %lu", status);
-    [[packageManagement sharedManager] setCurrentVPNStatus:status];
-    [self.tabBarController refreshSettings];
+//track current status here, connected, disconnected etc.
+    NSLog(@"daemon reported status: %lu", status);
 }
 
 - (void)stopVPNService {
@@ -158,7 +161,7 @@ I recommend creating profiles to experiment in [Apple Configurator 2](https://su
 }
 
 - (void)setCurrentInterfaceMode:(UIUserInterfaceStyle)style {
-    LOG_SELF;
+    
     @try {
         [[self.daemonConnection remoteObjectProxy] applicationChangedViewMode:style];
     } @catch (NSException *exception) {
@@ -166,6 +169,25 @@ I recommend creating profiles to experiment in [Apple Configurator 2](https://su
     } @finally {
         //
     }
+}
+
+//NOTE: you will NOT be able to listen for com.apple.mobileconfig, consider creating a custom extension / UTI type that you specifically listen for. 
+      
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+    NSLog(@"url: %@ path: %@ options: %@", url, url.path, options);
+    if ([url isFileURL]){
+        NSString *ext = [[[url path] pathExtension] lowercaseString];
+        if ([ext isEqualToString:@"mobileconfig"]){ 
+            NSLog(@"mobile config file type: %@", ext);
+            [self promptToInstallMobileConfig:url.path];
+            return YES;
+        } else {
+            NSLog(@"unrecognized file type: %@", ext);
+            return NO;
+        }
+    }
+    return YES;
 }
 
 - (void)promptToInstallMobileConfig:(NSString *)mcfile {
@@ -185,22 +207,20 @@ I recommend creating profiles to experiment in [Apple Configurator 2](https://su
             UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:payloadDescription preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
-                [self showBulletinWithTitle:@"VPN" message:[NSString stringWithFormat:@"Processing %@...", payloadDisplayName] timeout:3];
+                NSLog(@"installing VPN payload: %@", payloadDisplayName);
                 [self startVPNPayload:mainPayload];
             }];
             [ac addAction:okAction];
             [ac addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[self topViewController] presentViewController:ac animated:true completion:nil];
+                [self.window.rootViewController presentViewController:ac animated:true completion:nil];
             });
             
         }
     }
-   
-    
 }
 
-//where we send the mobileconfig after receiving it from 
+//where we send the mobileconfig after receiving it from promptToInstallMobileConfig
 - (void)startVPNPayload:(NSDictionary *)payload {
     @try {
            [[self.daemonConnection remoteObjectProxy] applicationStartVPNConnection:payload];
