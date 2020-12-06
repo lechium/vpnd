@@ -7,7 +7,17 @@ Read more about [configuration profiles](https://developer.apple.com/business/do
 
 I recommend creating profiles to experiment in [Apple Configurator 2](https://support.apple.com/apple-configurator)
 
-***build and use at your own risk! working with NEVPNManager is a huge & finicky pain if you arent familiar with it.***
+***NOTE: This project is included as part of nitoTV, you do NOT need to build and install it manually unless you want to tweak the VPN code***
+
+***build and use manually at your own risk! working with NEVPNManager is a huge & finicky pain if you arent familiar with it.***
+
+## mobileconfig
+
+There is an example mobileconfig file included that is the template of what we create in Guardian app to share our profiles to tvOS et al called 'Example.mobileconfig' in the root of the source folder.
+
+Keep in mind right now it only grabs 3 pieces of information from this mobileconfig and the rest is currently discarded (EAP username, password and hostname), if you want to experiment with getting other configurations working (with different security settings etc) you will need to modify the project itself along the 'USE_PROFILE' macros. That avenue isnt for the feint of heart.
+
+Once you modify the mobileconfig that is included in this project (replacing EAP_USERNAME_HERE, EAP_PASSWORD_HERE and HOSTNAME_HERE) you can AirDrop it to your device to get nitoTV to attempt to install and use the profile.
 
 ## App side sample code
 

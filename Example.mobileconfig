@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>IKEv2</key>
+			<dict>
+				<key>AuthName</key>
+				<string>EAP_USERNAME_HERE</string>
+				<key>AuthPassword</key>
+				<string>EAP_PASSWORD_HERE</string>
+				<key>AuthenticationMethod</key>
+				<string>Certificate</string>
+				<key>CertificateType</key>
+				<string>ECDSA256</string>
+				<key>ChildSecurityAssociationParameters</key>
+				<dict>
+					<key>DiffieHellmanGroup</key>
+					<integer>20</integer>
+					<key>EncryptionAlgorithm</key>
+					<string>AES-256-GCM</string>
+					<key>IntegrityAlgorithm</key>
+					<string>SHA2-256</string>
+					<key>LifeTimeInMinutes</key>
+					<integer>20</integer>
+				</dict>
+				<key>DeadPeerDetectionRate</key>
+				<string>Low</string>
+				<key>DisableMOBIKE</key>
+				<integer>0</integer>
+				<key>EnablePFS</key>
+				<true/>
+				<key>ExtendedAuthEnabled</key>
+				<true/>
+				<key>IKESecurityAssociationParameters</key>
+				<dict>
+					<key>DiffieHellmanGroup</key>
+					<integer>20</integer>
+					<key>EncryptionAlgorithm</key>
+					<string>AES-256</string>
+					<key>IntegrityAlgorithm</key>
+					<string>SHA2-384</string>
+					<key>LifeTimeInMinutes</key>
+					<integer>59</integer>
+				</dict>
+				<key>RemoteAddress</key>
+				<string>HOSTNAME_HERE</string>
+				<key>RemoteIdentifier</key>
+				<string>HOSTNAME_HERE</string>
+				<key>ServerCertificateCommonName</key>
+				<string>HOSTNAME_HERE</string>
+				<key>UseConfigurationAttributeInternalIPSubnet</key>
+				<true/>
+			</dict>
+			<key>PayloadDescription</key>
+			<string>All internet activity is sent through a persistent, fast, and secure IKEv2-based VPN tunnel, ensuring your data is protected.</string>
+			<key>PayloadDisplayName</key>
+			<string>Guardian Japan VPN</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.vpn.managed.5B3C6104-D867-4FB9-B161-0D4BAC91AC2F</string>
+			<key>PayloadType</key>
+			<string>com.apple.vpn.managed</string>
+			<key>PayloadUUID</key>
+			<string>5B3C6104-D867-4FB9-B161-0D4BAC91AC2F</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>VPNType</key>
+			<string>IKEv2</string>
+			<key>nitotv-PayloadExpiration</key>
+			<date>2020-12-31T22:12:32Z</date>
+		</dict>
+	</array>
+	<key>PayloadDisplayName</key>
+	<string>Guardian (tokyo-ipsec-1)</string>
+	<key>PayloadIdentifier</key>
+	<string>ios.18341C60-4A6D-4E28-A2BC-B685FD6A2939</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>8C46AF9B-2613-4967-98AA-CD7F9E083733</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
